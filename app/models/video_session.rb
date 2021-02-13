@@ -1,0 +1,2 @@
+class VideoSession < ApplicationRecord
+end
