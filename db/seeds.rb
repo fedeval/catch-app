@@ -17,8 +17,13 @@ User.create(email: 'juan@test.com', password: '123456', first_name: 'Juan', last
 
 
 puts 'other user seeds...'
-10.times do
-  
+50.times do
+  User.create(email: Faker::Internet.email,
+              password: '123456',
+              first_name: Faker::Name.first_name,
+              last_name: Faker::Name.last_name,
+              username: Faker::Internet.username(specifier: 5..8),
+              description: Faker::Lorem.sentence(word_count: 20))
 end
 
 puts 'done.'
