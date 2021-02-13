@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_135339) do
+ActiveRecord::Schema.define(version: 2021_02_13_164810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 2021_02_13_135339) do
     t.bigint "second_match"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "confirmed"
+    t.date "start_time"
+    t.date "end_time"
+    t.integer "length"
     t.index ["first_match"], name: "index_video_sessions_on_first_match"
     t.index ["second_match"], name: "index_video_sessions_on_second_match"
   end
