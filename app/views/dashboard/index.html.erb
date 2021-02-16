@@ -1,1 +1,40 @@
-<h1>Here we'll have our Dashboard</h1>
+<div class="dashboard-wrapper">
+
+    <div class="dashboard-main">
+
+      <div class="dashboard-profile">
+        <%= image_tag 'user_placeholder.jpg', id: 'dashboard-avatar' %>
+        <div class="user-description">
+          <p><%= @user.first_name %> <%= @user.last_name %></p>
+          <p><%= @user.description %></p>
+        </div>
+        <div class="user-info-card">
+          <div class="user-icons">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i>😂</i> <%= @user.badges["funny"].count %></li>
+              <li class="list-inline-item"><i>🥳</i> <%= @user.badges["happy"].count %></li>
+              <li class="list-inline-item"><i>🤗</i> <%= @user.badges["friendly"].count %></li>
+              <li class="list-inline-item"><i>🧠</i> <%= @user.badges["smart"].count %></li>
+              <li class="list-inline-item"><i>👾</i> <%= @user.badges["geek"].count %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-bookings">
+        <ul class="booking-slots">
+          <%= @user.booking.each do
+            <li>"#{@user.booking}"</li>
+          end %>
+        </ul>
+      </div>
+
+      <div class="dashboard-contacts">
+        <div class="card">
+          <p>For each method with picture and First name</p>
+        </div>
+      </div>
+
+    </div>
+
+</div>

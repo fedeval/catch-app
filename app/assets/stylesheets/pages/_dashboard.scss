@@ -1,0 +1,77 @@
+.dashboard-wrapper {
+  padding: 16px;
+  margin: 0 100px;
+}
+
+.dashboard-main {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.dashboard-profile {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.user-description {
+  #TBD
+}
+
+.user-info-card {
+  margin-top: 16px;
+  p {
+    font-weight: bold;
+  }
+}
+
+.user-icons {
+  text-align: center;
+}
+
+.dashboard-bookings {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.booking-slots {
+    color: white;
+    background-color: grey;
+    border: 2px solid;
+    border-radius: 35px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 30px;
+    position: relative;
+    text-align: center;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    text-decoration: none;
+}
+
+.dashboard-contacts {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  border-radius: 5px;
+}
+
+
+#dashboard-avatar {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
