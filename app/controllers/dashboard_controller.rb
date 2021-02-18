@@ -3,6 +3,10 @@ class DashboardController < ApplicationController
 
   def index
     @user = current_user
-    #@bookings = Booking.where(user: @user)
+    # @user = policy_scope(User)
+    @user_badges = @badges.select {|badge| badge.user == @user }
+    # @bookings = Booking.where(user: @user)
   end
 end
+
+# @bookings = Booking.where(user: @user)

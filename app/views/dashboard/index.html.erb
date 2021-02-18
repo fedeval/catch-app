@@ -3,7 +3,7 @@
     <div class="dashboard-main">
 
       <div class="dashboard-profile">
-        <%= image_tag 'user_placeholder.jpg', id: 'dashboard-avatar' %>
+        <%= image_tag 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.promiflash.de%2Fthema%2Frobert-pattinson%2F&psig=AOvVaw2dChq_WaCnxFa1NP4bd8cj&ust=1613759583030000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPi65pCJ9O4CFQAAAAAdAAAAABAD', id: 'dashboard-avatar' %>
         <div class="user-description">
           <p><%= @user.first_name %> <%= @user.last_name %></p>
           <p><%= @user.description %></p>
@@ -21,19 +21,7 @@
         </div>
       </div>
 
-      <div class="dashboard-bookings">
-        <ul class="booking-slots">
-          <%= @user.booking.each do
-            <li>"#{@user.booking}"</li>
-          end %>
-        </ul>
-      </div>
 
-      <div class="dashboard-contacts">
-        <div class="card">
-          <p>For each method with picture and First name</p>
-        </div>
-      </div>
 
     </div>
 

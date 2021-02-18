@@ -6,4 +6,5 @@ class RouletteController < ApplicationController
     # check if proper
     @roulette = policy_scope(User)
   end
+
 end
