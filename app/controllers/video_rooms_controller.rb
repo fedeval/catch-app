@@ -16,10 +16,11 @@ class VideoRoomsController < ApplicationController
     
     @room = VideoRoom.new(name: 'Test', session_id: session.session_id)
     authorize @room
+
     if @room.save
-      render :show
+      redirect_to video_room_path(@room)
     else
-      render root_path
+      redirect_to root_path
     end
   end
 

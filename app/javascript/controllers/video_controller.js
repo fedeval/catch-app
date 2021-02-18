@@ -2,37 +2,44 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   connect() {
-    const this.apiKey = this.data.get("apiKey")
-    const this.sessionId = this.data.get("sessionId")
-    const this.token = this.data.get("token")
+    this.apiKey = this.data.get("apiKey")
+    this.sessionId = this.data.get("sessionId")
+    this.token = this.data.get("token")
     this.initializeSession()
   }
 
-  function handleError(error) {
+  handleError(error) {
     if (error) {
-      alert(error.message);
+      console.error(error.message);
     }
   }
 
-  function initializeSession() {
-    const this.session = OT.initSession(this.apiKey, this.sessionId);
+  initializeSession() {
+    this.session = OT.initSession(this.apiKey, this.sessionId);
 
     // Subscribe to a newly created stream
+    this.session.on('streamCreated', function(event) {
+      this.session.subscribe(event.stream, 'subscriber', {
+        insertMode: 'append',
+        width: '100%',
+        height: '100%'
+      }, this.handleError.bind(this));
+    });
 
     // Create a publisher
-    const this.publisher = OT.initPublisher(this.element, {
+    this.publisher = OT.initPublisher('publisher', {
       insertMode: 'append',
       width: '100%',
       height: '100%'
-    }, handleError);
+    }, this.handleError.bind(this));
 
     // Connect to the session
     this.session.connect(this.token, function(error) {
       // If the connection is successful, publish to the session
       if (error) {
-        handleError(error);
+        this.handleError(error);
       } else {
-        this.session.publish(this.publisher, handleError);
+        this.session.publish(this.publisher, this.handleError.bind(this));
       }
     });
   }
