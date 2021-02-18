@@ -5,6 +5,7 @@ class VideoRoomsController < ApplicationController
     @room = VideoRoom.find(params[:id])
     opentok = OpenTok::OpenTok.new ENV['VONAGE_API_KEY'], ENV['VONAGE_API_SECRET']
     @token = opentok.generate_token @room.session_id
+    authorize @room
   end
 
   def new; end
@@ -14,6 +15,7 @@ class VideoRoomsController < ApplicationController
     session = opentok.create_session
     
     @room = VideoRoom.new(name: 'Test', session_id: session.session_id)
+    authorize @room
     if @room.save
       render :show
     else
