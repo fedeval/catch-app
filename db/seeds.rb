@@ -15,7 +15,6 @@ User.create(email: 'leonardo@test.com', password: '123456', first_name: 'Leonard
 User.create(email: 'susann@test.com', password: '123456', first_name: 'Susann', last_name: 'Kachler', username: 'susann-dev', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 User.create(email: 'juan@test.com', password: '123456', first_name: 'Juan', last_name: 'Pao', username: 'juan-runs-code', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 
-
 puts 'other user seeds...'
 50.times do
   User.create(email: Faker::Internet.email,
@@ -25,5 +24,8 @@ puts 'other user seeds...'
               username: Faker::Internet.username(specifier: 5..8),
               description: Faker::Lorem.sentence(word_count: 20))
 end
+
+puts 'creating chatroom'
+Chatroom.create(name: 'general')
 
 puts 'done.'
