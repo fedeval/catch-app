@@ -1,4 +1,4 @@
-class ChatroomPolicy < ApplicationPolicy
+class MessagePolicy < ApplicationPolicy
   # [...]
 
   def show?
