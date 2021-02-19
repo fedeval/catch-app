@@ -18,13 +18,7 @@ export default class extends Controller {
     this.session = OT.initSession(this.apiKey, this.sessionId);
 
     // Subscribe to a newly created stream
-    this.session.on('streamCreated', function(event) {
-      this.session.subscribe(event.stream, 'subscriber', {
-        insertMode: 'append',
-        width: '100%',
-        height: '100%'
-      }, this.handleError.bind(this));
-    });
+    this.session.on('streamCreated', this.subscribeToStream.bind(this))
 
     // Create a publisher
     this.publisher = OT.initPublisher('publisher', {
@@ -34,13 +28,23 @@ export default class extends Controller {
     }, this.handleError.bind(this));
 
     // Connect to the session
-    this.session.connect(this.token, function(error) {
-      // If the connection is successful, publish to the session
-      if (error) {
-        this.handleError(error);
-      } else {
-        this.session.publish(this.publisher, this.handleError.bind(this));
-      }
-    });
+    this.session.connect(this.token, this.connectStream.bind(this));
+  }
+
+
+  subscribeToStream(event) {
+    this.session.subscribe(event.stream, 'subscriber', {
+      insertMode: 'append',
+      width: '100%',
+      height: '100%'
+    }, this.handleError.bind(this));
+  }
+
+  connectStream(error) {
+    if (error) {
+      this.handleError(error);
+    } else {
+      this.session.publish(this.publisher, this.handleError.bind(this));
+    }
   }
 }
