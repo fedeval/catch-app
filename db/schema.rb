@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_191814) do
+ActiveRecord::Schema.define(version: 2021_02_18_180739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,21 +54,15 @@ ActiveRecord::Schema.define(version: 2021_02_16_191814) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "video_sessions", force: :cascade do |t|
-    t.bigint "first_match"
-    t.bigint "second_match"
+  create_table "video_rooms", force: :cascade do |t|
+    t.string "name"
+    t.string "session_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "confirmed"
-    t.date "start_time"
-    t.date "end_time"
-    t.integer "length"
-    t.index ["first_match"], name: "index_video_sessions_on_first_match"
-    t.index ["second_match"], name: "index_video_sessions_on_second_match"
   end
+
 
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "video_sessions", "users", column: "first_match"
-  add_foreign_key "video_sessions", "users", column: "second_match"
+
 end

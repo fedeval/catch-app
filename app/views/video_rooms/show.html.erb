@@ -1,0 +1,14 @@
+<h1>Welcome to <%= @room.name %></h1>
+<div class="container">
+  
+  <div id="videos"
+       data-controller="video"
+       data-video-api-key="<%= ENV['VONAGE_API_KEY'] %>"
+       data-video-session-id="<%= @room.session_id %>"
+       data-video-token="<%= @token %>"
+      >
+      <div id="subscriber" style="height: 300px; width: 300px;"></div>
+      <div id="publisher" style="height: 300px; width: 300px;"></div>
+  </div>
+</div>
+  
