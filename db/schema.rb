@@ -61,8 +61,6 @@ ActiveRecord::Schema.define(version: 2021_02_18_180739) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-
 end
