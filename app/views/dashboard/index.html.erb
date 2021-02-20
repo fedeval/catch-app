@@ -1,0 +1,43 @@
+<div class="dashboard-wrapper">
+
+    <div class="dashboard-main">
+
+      <div class="dashboard-profile">
+        <%= image_tag 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.promiflash.de%2Fthema%2Frobert-pattinson%2F&psig=AOvVaw2dChq_WaCnxFa1NP4bd8cj&ust=1613759583030000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPi65pCJ9O4CFQAAAAAdAAAAABAD', id: 'dashboard-avatar' %>
+        <div class="user-description">
+          <p><%= @user.first_name %> <%= @user.last_name %></p>
+          <p><%= @user.description %></p>
+        </div>
+        <div class="user-info-card">
+          <div class="user-icons">
+            <ul class="list-inline">
+              <li class="list-inline-item"><p>😂</p> </li>
+              <li class="list-inline-item"><p>🥳</p> </li>
+              <li class="list-inline-item"><p>🤗</p> </li>
+              <li class="list-inline-item"><p>🧠</p> </li>
+              <li class="list-inline-item"><p>👾</p> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-bookings">
+        <p>Here we'll have the booking slots</p>
+        <ul>
+              <li><p>time 1</p> </li>
+              <li><p>time 2</p> </li>
+              <li><p>time 3</p> </li>
+            </ul>
+      </div>
+      <div class="dashboard-contacts">
+        <p>Here we'll have the user's contacts</p>
+        <ul>
+              <li><p>friend 1</p> </li>
+              <li><p>friend 2</p> </li>
+              <li><p>friend 3</p> </li>
+            </ul>
+      </div>
+
+
+    </div>
+
+</div>
