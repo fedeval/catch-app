@@ -10,12 +10,12 @@
         </div>
         <div class="user-info-card">
           <div class="user-icons">
-            <ul class="list-inline">
-              <li class="list-inline-item"><p>😂</p> </li>
-              <li class="list-inline-item"><p>🥳</p> </li>
-              <li class="list-inline-item"><p>🤗</p> </li>
-              <li class="list-inline-item"><p>🧠</p> </li>
-              <li class="list-inline-item"><p>👾</p> </li>
+            <ul class="user-icons-list">
+              <li><p>😂 <%= @user.received_badges.where(category: 'funny').count %></p></li>
+              <li><p>🥳 <%= @user.received_badges.where(category: 'party').count %></p> </li>
+              <li><p>🤗 <%= @user.received_badges.where(category: 'nice').count %></p> </li>
+              <li><p>🧠 <%= @user.received_badges.where(category: 'smart').count %></p> </li>
+              <li><p>👾 <%= @user.received_badges.where(category: 'geeky').count %></p> </li>
             </ul>
           </div>
         </div>
