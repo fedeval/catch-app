@@ -5,9 +5,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :user_badges, dependent: :destroy
+  has_many :sent_user_badges, class_name: 'UserBadge', dependent: :destroy, foreign_key: :sender_id
+  has_many :received_user_badges, class_name: 'UserBadge', dependent: :destroy, foreign_key: :receiver_id
   has_many :messages, dependent: :destroy
-  has_many :badges, through: :user_badges
+  has_many :received_badges, through: :received_user_badges, source: :badge
 
   validates :first_name, presence: true
   validates :last_name, presence: true
