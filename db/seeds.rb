@@ -35,4 +35,13 @@ Badge.create(type: 'nice', content: 🤗)
 Badge.create(type: 'smart', content: 🧠)
 Badge.create(type: 'geeky', content: 👾)
 
+badges = Badge.all
+User.all.each do |receiver|
+  User.all.each do |sender|
+    UserBadge.create(sender_id: sender.id,
+                     receiver_id: receiver.id, 
+                     badge_id: badges.sample.id)
+  end
+end
+
 puts 'done.'
