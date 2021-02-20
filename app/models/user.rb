@@ -5,12 +5,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :user_badges, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :badges, through: :user_badges
-  has_many :user_badges
 
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :description, presence: true
   validates :username, presence: true
-  has_many :messages
 end
