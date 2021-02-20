@@ -4,11 +4,11 @@ class UserBadgesController < ApplicationController
     @user_badge = UserBadge.new
   end
 
-  def create
-    @user_badge = UserBadge.new(badge_params)
-  end
+  # def create
+    #@user_badge = UserBadge.new(badge_params)
+#   end
 
-def badge_params
-    params.require(:badge).permit(:)
-  end
+# def badge_params
+#     params.require(:badge).permit(:)
+#   end
 end
