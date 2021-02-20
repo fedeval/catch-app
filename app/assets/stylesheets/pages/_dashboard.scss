@@ -10,6 +10,27 @@
 
 .dashboard-profile {
   display: flex;
+  flex-basis: 33%;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.dashboard-bookings {
+  display: flex;
+  flex-basis: 33%;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.dashboard-contacts {
+  display: flex;
+  flex-basis: 33%;
   flex-direction: column;
   background-color: white;
   padding: 20px;
@@ -32,15 +53,6 @@
   text-align: center;
 }
 
-.dashboard-bookings {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 20px;
-  align-items: center;
-  border-radius: 5px;
-}
-
 .booking-slots {
     color: white;
     background-color: grey;
@@ -57,15 +69,6 @@
     -webkit-transition-duration: .15s;
     transition-duration: .15s;
     text-decoration: none;
-}
-
-.dashboard-contacts {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  padding: 20px;
-  align-items: center;
-  border-radius: 5px;
 }
 
 
