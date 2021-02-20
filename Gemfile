@@ -66,3 +66,6 @@ gem 'pundit'
 
 # Faker for seeds
 gem 'faker'
+
+# Video with OpenTok
+gem "opentok", "~> 4.0.0"
