@@ -28,4 +28,11 @@ end
 puts 'creating chatroom'
 Chatroom.create(name: 'general')
 
+puts 'creating badges'
+Badge.create(type: 'funny', content: 😂)
+Badge.create(type: 'party', content: 🥳)
+Badge.create(type: 'nice', content: 🤗)
+Badge.create(type: 'smart', content: 🧠)
+Badge.create(type: 'geeky', content: 👾)
+
 puts 'done.'

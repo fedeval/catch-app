@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :badges
+  has_many :badges, through: :user_badges
   has_many :user_badges
 
   validates :first_name, presence: true
