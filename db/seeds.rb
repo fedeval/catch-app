@@ -8,6 +8,9 @@ require 'faker'
 
 puts 'cleaning the db...'
 User.destroy_all
+Chatroom.destroy_all
+Badge.destroy_all
+UserBadge.destroy_all
 
 puts 'creating seeds for the team...'
 User.create(email: 'federico@test.com', password: '123456', first_name: 'Federico', last_name: 'Valenza', username: 'fedeval', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
@@ -16,7 +19,7 @@ User.create(email: 'susann@test.com', password: '123456', first_name: 'Susann', 
 User.create(email: 'juan@test.com', password: '123456', first_name: 'Juan', last_name: 'Pao', username: 'juan-runs-code', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 
 puts 'other user seeds...'
-50.times do
+10.times do
   User.create(email: Faker::Internet.email,
               password: '123456',
               first_name: Faker::Name.first_name,
@@ -27,5 +30,24 @@ end
 
 puts 'creating chatroom'
 Chatroom.create(name: 'general')
+
+puts 'creating badges'
+Badge.create(category: 'funny', content: '😂')
+Badge.create(category: 'party', content: '🥳')
+Badge.create(category: 'nice', content: '🤗')
+Badge.create(category: 'smart', content: '🧠')
+Badge.create(category: 'geeky', content: '👾')
+
+puts 'assigning badges to users'
+badges = Badge.all
+User.all.each do |receiver|
+  User.all.each do |sender|
+    unless  receiver == sender
+      UserBadge.create(sender_id: sender.id,
+                       receiver_id: receiver.id, 
+                       badge_id: badges.sample.id)
+    end
+  end
+end
 
 puts 'done.'
