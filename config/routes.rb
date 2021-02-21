@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :dashboard, only: [:index]
 
-  resources :video_rooms, only: [:new, :create, :show]
+  resources :video_rooms, only: [:create, :show]
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
