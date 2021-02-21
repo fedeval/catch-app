@@ -5,4 +5,9 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking)
   end
 
+  def create; end
+
+  private
+
+  def booking_params; end
 end
