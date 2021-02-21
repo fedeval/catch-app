@@ -50,4 +50,11 @@ User.all.each do |receiver|
   end
 end
 
+
+puts 'creating some bookings'
+now = Time.now
+hour = now.hour
+minutes = now.min
+
+
 puts 'done.'
