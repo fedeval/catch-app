@@ -14,8 +14,8 @@
            data-current-minutes="<%= Time.now.min %>">
     <input type="submit"> -->
     <%= form_tag(bookings_path, method: :post) do %>
-      <%= text_field_tag 'timepicker', nil, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } %>
-      <%= submit_tag("Create a booking") %>
+      <%= text_field_tag 'timepicker', nil, data: {current_hour: Time.now.hour, current_minutes: Time.now.min }, style: "width: 100%;" %>
+      <%= submit_tag "Create a booking", class: 'booking-btn' %>
     <% end %>
  </div>
 </div>

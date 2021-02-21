@@ -14,6 +14,7 @@ const initTimepicker = () => {
     'step': 10,
     'minTime': minTime,
     'maxTime': (parseInt(minTime, 10) + 3).toString(),
+    'listWidth': 1,
   });
 }
 
