@@ -7,6 +7,8 @@ class BookingsController < ApplicationController
 
   def create; end
 
+  def update; end
+
   private
 
   def booking_params; end

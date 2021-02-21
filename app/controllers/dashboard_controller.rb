@@ -9,5 +9,3 @@ class DashboardController < ApplicationController
     @bookings = Booking.where("user_one_id = ? or user_two_id = ?", @user.id, @user.id)
   end
 end
-
-# @bookings = Booking.where(user: @user)
