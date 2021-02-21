@@ -1,9 +1,8 @@
 class BookingsController < ApplicationController
-  # to be removed
-  skip_before_action :authenticate_user!
+  before_action :authenticate_user!
 
-  def new
-    # @roulette = policy_scope(User)
+  def index
+    @bookings = policy_scope(Booking)
   end
 
 end
