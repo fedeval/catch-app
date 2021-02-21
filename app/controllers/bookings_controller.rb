@@ -3,14 +3,17 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking)
+    @booking = Booking.new
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    booking_params = params[:timepicker].split(':').map(&:to_i)
+    @booking = Booking.new(start_hour: booking_params[0], start_minutes: booking_params[1])
     @booking.user_one = current_user
     authorize(@booking)
+
     if @booking.save
-      redirect_to 'dashboard/index'
+      redirect_to dashboard_index_path
     else
       render 'bookings/index'
     end
@@ -21,15 +24,9 @@ class BookingsController < ApplicationController
     @booking.user_two = current_user
     authorize(@booking)
     if @booking.save
-      redirect_to 'dashboard/index'
+      redirect_to dashboard_index_path
     else
       render 'bookings/index'
     end
-  end
-
-  private
-
-  def booking_params
-    params.require(:booking).permit(:start_hour, :start_minutes)
   end
 end
