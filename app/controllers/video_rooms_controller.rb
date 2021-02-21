@@ -8,12 +8,10 @@ class VideoRoomsController < ApplicationController
     authorize @room
   end
 
-  def new; end
-
   def create
     opentok = OpenTok::OpenTok.new ENV['VONAGE_API_KEY'], ENV['VONAGE_API_SECRET']
     session = opentok.create_session
-    
+
     @room = VideoRoom.new(name: 'Test', session_id: session.session_id)
     authorize @room
 
@@ -23,5 +21,4 @@ class VideoRoomsController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
