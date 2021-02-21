@@ -11,6 +11,7 @@ User.destroy_all
 Chatroom.destroy_all
 Badge.destroy_all
 UserBadge.destroy_all
+Booking.destroy_all
 
 puts 'creating seeds for the team...'
 User.create(email: 'federico@test.com', password: '123456', first_name: 'Federico', last_name: 'Valenza', username: 'fedeval', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
@@ -52,9 +53,12 @@ end
 
 
 puts 'creating some bookings'
-now = Time.now
-hour = now.hour
-minutes = now.min
-
+hours = [12, 13, 14]
+minutes = [00, 10, 20, 30, 40, 50] 
+hours.each do |hour|
+  minutes.each do |minute|
+    Booking.create(start_hour: hour, start_minutes: minute, user_one: User.all.sample) if (minute / 10) % 2 != 0
+  end
+end
 
 puts 'done.'

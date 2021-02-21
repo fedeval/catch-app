@@ -14,8 +14,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   # Bookings validations
-  has_many :bookings_as_user_one, class_name: 'Bookings', dependent: :destroy, foreign_key: :user_one_id
-  has_many :bookings_as_user_two, class_name: 'Bookings', dependent: :destroy, foreign_key: :user_two_id
+  has_many :bookings_as_user_one, class_name: 'Booking', dependent: :destroy, foreign_key: :user_one_id
+  has_many :bookings_as_user_two, class_name: 'Booking', dependent: :destroy, foreign_key: :user_two_id
 
   # Attributes validations
   validates :first_name, presence: true
