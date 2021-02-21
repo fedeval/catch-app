@@ -1,6 +1,10 @@
 <div class="wrapper">
  <div class="bookings-matches">
-   
+   <% @bookings.each do |booking| %>
+    <% unless booking.user_one == current_user || booking.user_two == current_user %>
+      <%= button_to "#{booking.start_hour}:#{booking.start_minutes}", '#', class: 'booking-btn' %>
+    <% end %>
+   <% end %>
  </div>
  <div class="bookings-form">
    
