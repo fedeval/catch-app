@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_192025) do
     t.bigint "user_two_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.time "start_time"
+    t.datetime "start_time"
   end
 
   create_table "chatrooms", force: :cascade do |t|
