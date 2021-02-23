@@ -1,21 +1,24 @@
 <div class="wrapper">
- <div class="bookings-matches" style="margin-right: 50px;">
-  <h2>Get instantly matched!</h2>
-   <% @bookings.each do |booking| %>
-    <% unless booking.user_one == current_user || booking.user_two == current_user %>
-      <%= button_to "#{booking.start_hour}:#{booking.start_minutes}", booking_path(booking), method: :patch, class: 'booking-btn' %>
+
+  <div class="bookings-matches" style="margin-right: 50px;">
+    <h2>Get instantly matched!</h2>
+    <% @bookings.each do |booking| %>
+      
+      <% unless booking.user_one == current_user || booking.user_two == current_user %>
+        <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+        
+          <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'booking-btn' %>
+        <% end %>
+        
+      <% end %>
     <% end %>
-   <% end %>
- </div>
- <div class="bookings-form">
+  </div>
+
+  <div class="bookings-form">
     <h2>Choose a new slot:</h2>
-<!--     <input id="timepicker"
-           data-current-hour="<%= Time.now.hour %>"
-           data-current-minutes="<%= Time.now.min %>">
-    <input type="submit"> -->
-    <%= form_tag(bookings_path, method: :post) do %>
-      <%= text_field_tag 'timepicker', nil, data: {current_hour: Time.now.hour, current_minutes: Time.now.min }, style: "width: 100%;" %>
+    <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
+      <%= f.text_field :start_time, style: "width: 100%;" %>
       <%= submit_tag "Create a booking", class: 'booking-btn' %>
     <% end %>
- </div>
+  </div>
 </div>

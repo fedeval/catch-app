@@ -3,11 +3,11 @@ import timepicker from 'timepicker';
 
 const initTimepicker = () => {
   
-  const currentHour = parseInt(document.getElementById('timepicker').dataset.currentHour, 10)
-  const currentMinutes = parseInt(document.getElementById('timepicker').dataset.currentMinutes, 10)
+  const currentHour = parseInt(document.getElementById('new_booking').dataset.currentHour, 10)
+  const currentMinutes = parseInt(document.getElementById('new_booking').dataset.currentMinutes, 10)
   let minTime = calculateMinTime(currentHour, currentMinutes)
 
-  $('#timepicker').timepicker({
+  $('#booking_start_time').timepicker({
     'disableTextInput': true,
     'timeFormat': 'H:i',
     'show2400': true,

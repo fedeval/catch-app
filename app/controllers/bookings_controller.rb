@@ -7,8 +7,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    booking_params = params[:timepicker].split(':').map(&:to_i)
-    @booking = Booking.new(start_hour: booking_params[0], start_minutes: booking_params[1])
+    @booking = Booking.new(booking_params)
     @booking.user_one = current_user
     authorize(@booking)
 
@@ -28,5 +27,11 @@ class BookingsController < ApplicationController
     else
       render 'bookings/index'
     end
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_time)
   end
 end
