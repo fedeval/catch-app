@@ -58,10 +58,8 @@ minutes = (0..50).step(10).to_a
 
 hours.each do |hour|
   minutes.each do |minute|
-    # start_time = Time.parse("#{hour}:#{minute}")
-    # Booking.create(start_time: time, user_one: User.all.sample) if (minute / 10) % 2 != 0
-    Booking.create(start_hour: hour, start_minutes: minute, user_one: User.all.sample) if (minute / 10) % 2 != 0
-
+    start_time = Time.parse("#{hour}:#{minute}")
+    Booking.create(start_time: start_time, user_one: User.all.sample) if (minute / 10) % 2 != 0
   end
 end
 
