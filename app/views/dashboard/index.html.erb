@@ -48,15 +48,13 @@
       <div class="dashboard-contacts">
         <p>Here we'll have the user's contacts</p>
         <ul>
-          <li><p>User 1</p></li>
+          <li><p>User 1  <%= simple_form_for Chatroom.new, remote: true do |f| %>
+          <%= f.submit %> <% end %> </p></li> 
           <li><p>User 2</p></li>
           <li><p>User 3</p></li>
           <li><p>User 4</p></li>
           <li><p>User 5</p></li>
         </ul>
-      </div>
-
-
+      </div> 
     </div>
-
-</div>
+  </div>
