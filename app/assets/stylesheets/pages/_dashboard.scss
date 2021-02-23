@@ -3,44 +3,79 @@
   margin: 0 100px;
 }
 
+@media (max-width: 600px) {
+  .dashboard-wrapper {
+    margin: 0;
+  }
+}
+
 .dashboard-main {
   display: flex;
   margin-bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .dashboard-profile {
   display: flex;
-  flex-basis: 33%;
+  width: 390px;
+  // border: 1px solid red;
   flex-direction: column;
-  background-color: white;
+  background: rgba(255,255,255,0.5);
   padding: 20px;
   align-items: center;
   border-radius: 5px;
+  p, h5 {
+    margin: 5px;
+    margin-top: 10px;
+  }
 }
 
 .dashboard-bookings {
   display: flex;
-  flex-basis: 33%;
+  width: 390px;
+  // border: 1px solid red;
   flex-direction: column;
-  background-color: white;
+  background: rgba(255,255,255,0.5);
   padding: 20px;
   align-items: center;
   border-radius: 5px;
+  p {
+    margin: 5px;
+    margin-top: 10px;
+  }
 }
 
 .dashboard-contacts {
   display: flex;
-  flex-basis: 33%;
-  flex-direction: column;
-  background-color: white;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 390px;
+  // border: 1px solid red;
+  background: rgba(255,255,255,0.5);
   padding: 20px;
-  align-items: center;
   border-radius: 5px;
+  p {
+    margin: 5px;
+    margin-top: 10px;
+  }
 }
 
-// .user-description {
-//   #TBD
-// }
+.dashboard-contacts-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    li {
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+}
+
 
 .user-info-card {
   margin-top: 16px;
@@ -50,11 +85,20 @@
 }
 
 .user-icons {
+  flex-wrap: wrap;
   text-align: center;
 }
 
 .user-icons-list {
-  list-style: none;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    padding: 0;
+    li {
+      margin-left: 20px
+    }
 }
 
 .booking-slots {
@@ -79,6 +123,13 @@
 #dashboard-avatar {
   height: 160px;
   width: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#contacts-avatar {
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   object-fit: cover;
 }
