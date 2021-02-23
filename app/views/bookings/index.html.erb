@@ -16,9 +16,8 @@
 
   <div class="bookings-form">
     <h2>Choose a new slot:</h2>
-    <%= form_tag(bookings_path, method: :post) do %>
-      <%= text_field_tag 'start_time', nil, data: {current_hour: Time.now.hour, current_minutes: Time.now.min }, style: "width: 100%;" %>
-      <%= hidden_field_tag 'user_one', current_user %>
+    <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
+      <%= f.text_field :start_time, style: "width: 100%;" %>
       <%= submit_tag "Create a booking", class: 'booking-btn' %>
     <% end %>
   </div>

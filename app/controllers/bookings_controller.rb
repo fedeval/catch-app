@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_one = current_user
     authorize(@booking)
-    raise
+
     if @booking.save
       redirect_to dashboard_index_path
     else
@@ -32,6 +32,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :user_one)
+    params.require(:booking).permit(:start_time)
   end
 end
