@@ -20,7 +20,7 @@ User.create(email: 'susann@test.com', password: '123456', first_name: 'Susann', 
 User.create(email: 'juan@test.com', password: '123456', first_name: 'Juan', last_name: 'Pao', username: 'juan-runs-code', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 
 puts 'other user seeds...'
-10.times do
+20.times do
   User.create(email: Faker::Internet.email,
               password: '123456',
               first_name: Faker::Name.first_name,
@@ -53,11 +53,13 @@ end
 
 
 puts 'creating some bookings'
-hours = [12, 13, 14]
-minutes = [00, 10, 20, 30, 40, 50] 
-hours.each do |hour|
-  minutes.each do |minute|
-    Booking.create(start_hour: hour, start_minutes: minute, user_one: User.all.sample) if (minute / 10) % 2 != 0
+hours = (9..18).to_a
+minutes = (0..50).step(10).to_a
+5.times do 
+  hours.each do |hour|
+    minutes.each do |minute|
+      Booking.create(start_hour: hour, start_minutes: minute, user_one: User.all.sample) if (minute / 10) % 2 != 0
+    end
   end
 end
 
