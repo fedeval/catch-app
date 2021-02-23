@@ -5,9 +5,9 @@
     <% @bookings.each do |booking| %>
       
       <% unless booking.user_one == current_user || booking.user_two == current_user %>
-        <% if (booking.start_hour == Time.now.hour && booking.start_minutes > Time.now.min) || (booking.start_hour > Time.now.hour && booking.start_hour < (Time.now.hour + 3)) %>
+        <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
         
-          <%= button_to "#{booking.start_hour}:#{booking.start_minutes}", booking_path(booking), method: :patch, class: 'booking-btn' %>
+          <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'booking-btn' %>
         <% end %>
         
       <% end %>
@@ -17,7 +17,8 @@
   <div class="bookings-form">
     <h2>Choose a new slot:</h2>
     <%= form_tag(bookings_path, method: :post) do %>
-      <%= text_field_tag 'timepicker', nil, data: {current_hour: Time.now.hour, current_minutes: Time.now.min }, style: "width: 100%;" %>
+      <%= text_field_tag 'start_time', nil, data: {current_hour: Time.now.hour, current_minutes: Time.now.min }, style: "width: 100%;" %>
+      <%= hidden_field_tag 'user_one', current_user %>
       <%= submit_tag "Create a booking", class: 'booking-btn' %>
     <% end %>
   </div>
