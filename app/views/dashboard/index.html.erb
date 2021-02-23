@@ -3,56 +3,58 @@
     <div class="dashboard-main">
 
       <div class="dashboard-profile">
-        <%= image_tag 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.promiflash.de%2Fthema%2Frobert-pattinson%2F&psig=AOvVaw2dChq_WaCnxFa1NP4bd8cj&ust=1613759583030000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPi65pCJ9O4CFQAAAAAdAAAAABAD', id: 'dashboard-avatar' %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/dacoreggio", id: 'dashboard-avatar' %>
         <div class="user-description">
-          <p><%= @user.first_name %> <%= @user.last_name %> <i>( <%= @user.username %> )</i></p>
+          <h5><%= @user.first_name %> <%= @user.last_name %> <i>( <%= @user.username %> )</i></h5>
           <p><%= @user.description %></p>
         </div>
         <div class="user-info-card">
           <div class="user-icons">
             <ul class="user-icons-list">
-              <li>😂 <%= @user.received_badges.where(category: 'funny').count %></li>
-              <li>🥳 <%= @user.received_badges.where(category: 'party').count %></li>
-              <li>🤗 <%= @user.received_badges.where(category: 'nice').count %></li>
-              <li>🧠 <%= @user.received_badges.where(category: 'smart').count %></li>
-              <li>👾 <%= @user.received_badges.where(category: 'geeky').count %></li>
+              <li>😂<%= @user.received_badges.where(category: 'funny').count %></li>
+              <li>🥳<%= @user.received_badges.where(category: 'party').count %></li>
+              <li>🤗<%= @user.received_badges.where(category: 'nice').count %></li>
+              <li>🧠<%= @user.received_badges.where(category: 'smart').count %></li>
+              <li>👾<%= @user.received_badges.where(category: 'geeky').count %></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="dashboard-bookings">
         <div class="confirmed-calls">
-          <p>My next calls:</p>
+          <h3>My upcoming calls:</h3>
           <ul>
             <% @bookings.each do |booking| %>
               <% unless booking.user_two.nil? %>
                 <li>
-                  <%= booking.user_one.username %> - <%= booking.start_hour %>:<%= booking.start_minutes %>
+                  <%= booking.user_one.username %> - <%= booking.start_time.hour %>:<%= booking.start_time.min %>
                   <%= button_to "Start a video chat", video_rooms_path, params: {user_one: booking.user_one, user_two: booking.user_two }, class: 'btn btn-success' %>
                 </li>
               <% end %>
             <% end %>
-          </ul>        
+          </ul>
         </div>
         <div class="unconfirmed-calls">
           <p>Slots awaiting for confirmation:</p>
             <ul>
               <% @bookings.each do |booking| %>
                 <% unless !booking.user_two.nil? %>
-                  <li><%= booking.user_one.username %> - <%= booking.start_hour %>:<%= booking.start_minutes %></li>
+                  <li><%= booking.user_one.username %> - <%= booking.start_time.hour %>:<%= booking.start_time.min %></li>
                 <% end %>
               <% end %>
             </ul>
         </div>
       </div>
       <div class="dashboard-contacts">
-        <p>Here we'll have the user's contacts</p>
-        <ul>
-          <li><p>User 1</p></li>
-          <li><p>User 2</p></li>
-          <li><p>User 3</p></li>
-          <li><p>User 4</p></li>
-          <li><p>User 5</p></li>
+        <h3>My favourite contacts:</h3>
+        <ul class="dashboard-contacts-list">
+          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/dacoreggio", id: 'contacts-avatar' %></li>
+          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", id: 'contacts-avatar' %></li>
+          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/fedeval", id: 'contacts-avatar' %></li>
+          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/susann-dev", id: 'contacts-avatar' %></li>
+          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/juan-runs-code", id: 'contacts-avatar' %></li>
+          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/
+rkretch91", id: 'contacts-avatar' %></li>
         </ul>
       </div>
 
