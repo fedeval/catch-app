@@ -18,6 +18,7 @@ User.create(email: 'federico@test.com', password: '123456', first_name: 'Federic
 User.create(email: 'leonardo@test.com', password: '123456', first_name: 'Leonardo', last_name: 'Dacoreggio', username: 'dacoreggio', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 User.create(email: 'susann@test.com', password: '123456', first_name: 'Susann', last_name: 'Kachler', username: 'susann-dev', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 User.create(email: 'juan@test.com', password: '123456', first_name: 'Juan', last_name: 'Pao', username: 'juan-runs-code', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
+User.create(email: 'hektor@test.com', password: '123456', first_name: 'Hektor', last_name: 'Hernandez', username: 'hekterminator', description: 'My picture tells you all you need to know about me')
 
 puts 'other user seeds...'
 20.times do
@@ -30,7 +31,7 @@ puts 'other user seeds...'
 end
 
 puts 'creating chatroom'
-Chatroom.create(name: 'general')
+Chatroom.create(name: 'susann-and-hektor')
 
 puts 'creating badges'
 Badge.create(category: 'funny', content: '😂')
