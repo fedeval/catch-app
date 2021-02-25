@@ -46,8 +46,13 @@
         </div>
       </div>
       <div class="dashboard-contacts">
-
+        
+        <%= simple_form_for Chatroom.new, remote: true do |f| %>
+          <%= f.submit %> 
+        <% end %>
+        
         <h3>My favourite contacts:</h3>
+
         <ul class="dashboard-contacts-list">
           <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/dacoreggio", id: 'contacts-avatar' %></li>
           <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", id: 'contacts-avatar' %></li>
