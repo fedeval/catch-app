@@ -8,6 +8,14 @@ class VideoRoomsController < ApplicationController
     authorize @video_room
   end
 
+  def end
+    @video_room = VideoRoom.find(params[:id])
+    @booking = @video_room.booking
+    @badges = Badge.all
+    authorize @video_room
+  end
+
+
   # def create
   #   opentok = OpenTok::OpenTok.new ENV['VONAGE_API_KEY'], ENV['VONAGE_API_SECRET']
   #   session = opentok.create_session

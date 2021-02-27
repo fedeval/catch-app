@@ -7,4 +7,7 @@ class UserBadgePolicy < ApplicationPolicy
   def create?
     true
   end
+  def assign?
+    true
+  end
 end

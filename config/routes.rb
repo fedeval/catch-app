@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :video_rooms, only: [:show]
 
-  resources :user_badges, only: [:index, :create]
+  get "/video_rooms/:id/end", to: "video_rooms#end", as: "end_video_room"
+
+  post "/user_badge/assign", to: "user_badges#assign"
 
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create

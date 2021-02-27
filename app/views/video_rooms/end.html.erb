@@ -8,11 +8,9 @@
       <p>Would you like to assign a badge?</p>
       <div class="user-icons">
         <ul class="user-icons-list">
-          <li id="badge">😂</li>
-          <li id="badge">🥳</li>
-          <li id="badge">🤗</li>
-          <li id="badge">🧠</li>
-          <li id="badge">👾</li>
+          <% @badges.each do |badge| %>
+            <%= button_to badge.content, user_badge_assign_path(category: badge.category, booking: @booking) %>
+          <% end %>
         </ul>
       </div>
     </div>
