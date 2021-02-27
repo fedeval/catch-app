@@ -26,7 +26,7 @@
             <% @bookings.each do |booking| %>
               <% unless booking.user_two.nil? %>
                 <%= "Meeting with #{booking.user_one.username} at #{booking.start_time.hour}:#{booking.start_time.min}" %>
-                <%= button_to "Join Video", video_rooms_path, params: {user_one: booking.user_one, user_two: booking.user_two }, class: 'btn btn-primary' %>
+                <%= link_to "Join Video", video_room_path(VideoRoom.find_by(booking_id: booking.id)), class: 'btn btn-primary' %>
               <% end %>
             <% end %>
         </div>
