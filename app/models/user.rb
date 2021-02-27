@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+  # before_create :set_default_photo
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,4 +25,12 @@ class User < ApplicationRecord
 
    # photo validations
    has_one_attached :photo
+
+   # set_default image when user sign up without a photo
+#    def set_default_photo
+#      if !self.photo.attached?
+#        file = File.join(Rails.root, 'app', 'assets', 'images','hektor.jpg')
+#        self.photo = File.read(file)
+#      end
+#    end
 end
