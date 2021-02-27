@@ -16,10 +16,13 @@ class User < ApplicationRecord
   # Bookings validations
   has_many :bookings_as_user_one, class_name: 'Booking', dependent: :destroy, foreign_key: :user_one_id
   has_many :bookings_as_user_two, class_name: 'Booking', dependent: :destroy, foreign_key: :user_two_id
-
+  
   # Attributes validations
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :description, presence: true
   validates :username, presence: true
+
+   # photo validations
+   has_one_attached :photo
 end
