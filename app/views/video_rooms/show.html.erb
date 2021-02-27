@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="video-container">
   
   <div id="videos"
        data-controller="video"
@@ -9,6 +9,10 @@
       >
       <div id="subscriber"></div>
       <div id="publisher"></div>
+  </div>
+
+  <div class="end-button-container">
+    <%= link_to "End call", end_video_room_path(@video_room), class: "btn btn-primary" %>
   </div>
 </div>
   
