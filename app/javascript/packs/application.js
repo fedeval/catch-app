@@ -27,7 +27,6 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initTimepicker } from '../plugins/init_timepicker';
 

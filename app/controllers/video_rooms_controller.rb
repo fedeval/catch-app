@@ -14,19 +14,4 @@ class VideoRoomsController < ApplicationController
     @badges = Badge.all
     authorize @video_room
   end
-
-
-  # def create
-  #   opentok = OpenTok::OpenTok.new ENV['VONAGE_API_KEY'], ENV['VONAGE_API_SECRET']
-  #   session = opentok.create_session
-
-  #   @room = VideoRoom.new(session_id: session.session_id)
-  #   authorize @room
-
-  #   if @room.save
-  #     redirect_to video_room_path(@room)
-  #   else
-  #     redirect_to dashboard_index_path
-  #   end
-  # end
 end

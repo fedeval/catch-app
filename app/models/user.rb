@@ -16,21 +16,21 @@ class User < ApplicationRecord
   # Bookings validations
   has_many :bookings_as_user_one, class_name: 'Booking', dependent: :destroy, foreign_key: :user_one_id
   has_many :bookings_as_user_two, class_name: 'Booking', dependent: :destroy, foreign_key: :user_two_id
-  
+
   # Attributes validations
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :description, presence: true
   validates :username, presence: true
 
-   # photo validations
-   has_one_attached :photo
+  # photo validations
+  has_one_attached :photo
 
-   # set_default image when user sign up without a photo
-#    def set_default_photo
-#      if !self.photo.attached?
-#        file = File.join(Rails.root, 'app', 'assets', 'images','hektor.jpg')
-#        self.photo = File.read(file)
-#      end
-#    end
+  # set_default image whenr user sign up without a photo
+  # def set_default_photo
+  #  if !self.photo.attached?
+  #    file = File.join(Rails.root, 'app', 'assets', 'images','hektor.jpg')
+  #    self.photo = File.read(file)
+  #  end
+  # end
 end

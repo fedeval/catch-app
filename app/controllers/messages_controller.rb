@@ -7,10 +7,8 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save
-      # send to the channel
       ChatroomChannel.broadcast_to(
         @chatroom,
-        # "Hello there")
         render_to_string(partial: "message", locals: { message: @message })
       )
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
@@ -18,6 +16,8 @@ class MessagesController < ApplicationController
       render 'chatrooms/show'
     end
   end
+
+  private
 
   def message_params
     params.require(:message).permit(:content)
