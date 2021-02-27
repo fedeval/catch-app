@@ -8,6 +8,12 @@ export default class extends Controller {
     this.initializeSession()
   }
 
+  disconnect() {
+    if (this.session) {
+      this.session.disconnect()
+    }
+  }
+
   handleError(error) {
     if (error) {
       console.error(error.message);

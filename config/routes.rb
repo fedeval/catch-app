@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   resources :dashboard, only: [:index]
 
-  resources :video_rooms, only: [:create, :show]
+  resources :video_rooms, only: [:show]
 
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
