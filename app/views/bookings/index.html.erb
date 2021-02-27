@@ -2,7 +2,7 @@
 
   <div class="bookings-matches" style="margin-right: 50px;">
     <h2>Get instantly matched!</h2>
-    <% @bookings.each do |booking| %>
+    <% @bookings.order('start_time ASC').each do |booking| %>
       
       <% unless booking.user_one == current_user || booking.user_two == current_user %>
         <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
