@@ -32,10 +32,8 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "Description" }%>
-      <%= f.input :photo, as: :file,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "Photo" }%>
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo',
+                  required: false %>              
   </div>
 
     <div class="form-actions">

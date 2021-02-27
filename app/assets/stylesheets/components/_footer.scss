@@ -6,8 +6,9 @@
     height: 100px;
     padding: 0px 50px;
     color: #FFFFFF;
-    bottom:0;   
+    bottom: 0;   
     width: 100%;
+    position: relative;
   }
 
   .footer .fa-heart {
@@ -31,3 +32,8 @@
     opacity: 1;
   }
   
+  .page-container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+  }
