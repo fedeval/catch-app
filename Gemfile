@@ -69,3 +69,6 @@ gem 'faker'
 
 # Video with OpenTok
 gem "opentok", "~> 4.0.0"
+
+# cloudinary
+gem 'cloudinary', '~> 1.16.0'
