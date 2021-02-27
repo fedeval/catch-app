@@ -1,11 +1,7 @@
 
 // function assignBadge(badge) {
-//   const badge  = document.querySelector('.badge');
-//   user_two.badge;
-// }
-
-// // Add event listener to table with an arrow function
-// const el = document.getElementById("outside");
-// el.addEventListener("click", () => { modifyText("four"); }, false);
-
-
+//   var user_badge.where(@receiver_id = @user_two).where(@badge_id = badge)
+//   const badges  = document.querySelectorAll('#badges');
+//   badges.forEach.addEventListener("click", () => {
+//    }, false);
+//   }

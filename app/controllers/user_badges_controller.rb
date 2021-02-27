@@ -11,6 +11,20 @@ class UserBadgesController < ApplicationController
     authorize @user_badge
   end
 
+  def assign
+    badge = Badge.find_by(category: params[:category])
+    booking = Booking.find(params[:booking])
+    user_badge = UserBadge.new(
+      receiver: booking.user_one == current_user ? booking.user_two : booking.user_one,
+      sender: current_user,
+      badge: badge
+      )
+    authorize user_badge
+    if user_badge.save
+      redirect_to dashboard_index_path
+    end
+  end
+
   def index
     @badges = policy_scope(UserBadge)
   end
@@ -19,7 +33,8 @@ class UserBadgesController < ApplicationController
 #     params.require(:badge).permit(:)
 #   end
 
-  private
-    @receiver_id = "@video_room_receiver_id"
-
+  # private
+  # def user_badges_params
+  #   params.require(:booking).permit(:category, :booking)
+  # end
 end
