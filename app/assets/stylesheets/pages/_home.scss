@@ -1,7 +1,56 @@
 // Specific CSS for your home-page
-.wrapper {
+
+.wrapper-home {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin: 0;
+
 }
+
+.home-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 400px;
+  height: 180px;
+}
+
+.home-text > h3 {
+  font-family: "Playfair Display";
+  font-size: 35px;
+  font-weight: bold;
+  color: #01419F;
+}
+
+.home-card {
+  display: flex;
+  width: 400px;
+  height: 400px;
+  flex-direction: column;
+  background: rgba(255,255,255,0.5);
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+}
+
+.logo {
+  margin: 40px;
+
+}
+
+.home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+  height: 100px;
+  background: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
