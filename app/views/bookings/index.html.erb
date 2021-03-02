@@ -1,24 +1,38 @@
 <div class="wrapper">
-
-  <div class="bookings-matches" style="margin-right: 50px;">
-    <h2>Get instantly matched!</h2>
-    <% @bookings.order('start_time ASC').each do |booking| %>
+  
+  <div class="booking-window">
+    
+    <div class="instant-matches-list">
       
-      <% unless booking.user_one == current_user || booking.user_two == current_user %>
-        <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+      <h2>INSTANT MATCHES</h2>
+      
+      <% @bookings.order('start_time ASC').each do |booking| %>   
         
-          <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'booking-btn' %>
+        <% unless booking.user_one == current_user || booking.user_two == current_user %>
+          
+          <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+            
+            <div class="instant-match box">
+            
+              <span class="line"></span>          
+              <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'instant-match' %>
+              <span class="line"></span> 
+            </div>
+          <% end %>   
         <% end %>
-        
       <% end %>
-    <% end %>
-  </div>
+    </div>
+    
+    <div class="bookings-form">
+      
+      <h2 id="hide-show">NEW TIME</h2>
+        <div class="hidden" id="timepicker">
+          <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
+            <%= f.text_field :start_time, style: "width: 100%;" %>
+            <%= submit_tag "ADD NEW TIME", class: 'instant-match box create-btn', style: 'justify-content: center;' %>
+          <% end %>
 
-  <div class="bookings-form">
-    <h2>Choose a new slot:</h2>
-    <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
-      <%= f.text_field :start_time, style: "width: 100%;" %>
-      <%= submit_tag "Create a booking", class: 'booking-btn' %>
-    <% end %>
+        </div>
+    </div>
   </div>
 </div>

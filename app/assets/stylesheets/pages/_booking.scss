@@ -1,0 +1,49 @@
+.booking-window {
+  flex-direction: column;
+  text-align: center;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.instant-matches-list {
+  padding: 100px 0;
+}
+
+.bookings-form {
+  padding-bottom: 100px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 40px;
+  &:hover {
+    font-size: 44px;
+    margin-bottom: 4px;
+  }
+}
+
+.instant-match {
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-weight: bold;
+  color: rgb(14, 52, 112);
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.line {
+  width: 50%;
+  border: 1px solid rgb(14, 52, 112);
+  height: 0px;
+  margin: 0 20px;
+}
+
+.hidden {
+  display: none;
+}
