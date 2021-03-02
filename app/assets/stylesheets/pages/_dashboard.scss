@@ -1,12 +1,12 @@
-.dashboard-wrapper {
-  padding: 16px;
-  margin: 0 100px;
-}
-
 @media (max-width: 600px) {
   .dashboard-wrapper {
     margin: 0;
   }
+}
+
+.dashboard-wrapper {
+  padding: 16px;
+  margin: 0 100px;
 }
 
 .dashboard-main {
@@ -19,7 +19,6 @@
 .dashboard-profile {
   display: flex;
   width: 390px;
-  // border: 1px solid red;
   flex-direction: column;
   background: rgba(255,255,255,0.5);
   padding: 20px;
@@ -34,7 +33,6 @@
 .dashboard-bookings {
   display: flex;
   width: 390px;
-  // border: 1px solid red;
   flex-direction: column;
   background: rgba(255,255,255,0.5);
   padding: 20px;
@@ -52,7 +50,6 @@
   flex-wrap: wrap;
   align-items: stretch;
   width: 390px;
-  // border: 1px solid red;
   background: rgba(255,255,255,0.5);
   padding: 20px;
   border-radius: 5px;
@@ -63,19 +60,18 @@
 }
 
 .dashboard-contacts-list {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-    li {
-      margin-left: 5px;
-      margin-top: 5px;
-    }
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  li {
+    margin-left: 5px;
+    margin-top: 5px;
+  }
 }
-
 
 .user-info-card {
   margin-top: 16px;
@@ -90,33 +86,33 @@
 }
 
 .user-icons-list {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    align-items: stretch;
-    width: 100%;
-    padding: 0;
-    li {
-      margin-left: 20px
-    }
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
+  li {
+    margin-left: 20px
+  }
 }
 
 .booking-slots {
-    color: white;
-    background-color: grey;
-    border: 2px solid;
-    border-radius: 35px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 14px 30px;
-    position: relative;
-    text-align: center;
-    -webkit-transition-duration: .15s;
-    transition-duration: .15s;
-    text-decoration: none;
+  color: white;
+  background-color: grey;
+  border: 2px solid;
+  border-radius: 35px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 30px;
+  position: relative;
+  text-align: center;
+  -webkit-transition-duration: .15s;
+  transition-duration: .15s;
+  text-decoration: none;
 }
 
 .unconfirmed-call {

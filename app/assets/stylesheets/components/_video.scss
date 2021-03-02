@@ -1,7 +1,7 @@
 #videos {
     position: relative;
-    width: 600px;
-    height: 400px;
+    width: 900px;
+    height: 600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -10,9 +10,12 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 600px;
-    height: 400px;
+    width: 900px;
+    height: 600px;
     z-index: 10;
+    border: 3px solid white;
+    border-radius: 3px;
+    background-color: black;
 }
 
 #publisher {

@@ -15,14 +15,12 @@
   <body>
     <div class="page-container">
       <div class ="navbar-container">
-        <%= render 'shared/navbar' %>
+        <%= render 'shared/navbar' if !current_page?(root_path) %>
       </div>
-      <div class ="flash-container">
-       <%= render 'shared/flashes' %>
-      </div >    
+      <%= render 'shared/flashes' %>
       <%= yield %>
       <div class ="footer-container">
-        <%= render 'shared/footer' %>
+        <%= render 'shared/footer' if !current_page?(root_path) %>
       </div>
     </div>
   </body>

@@ -1,0 +1,18 @@
+<div class="badge-wrapper">
+
+  <div class="badge-main">
+
+    <div class="badge-profile">
+      <h5 style="text-align: center">You just finished your call with <%= @booking.user_one == current_user ? @booking.user_two.first_name : @booking.user_one.first_name %> </h5>
+      <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
+      <p>Would you like to assign a badge?</p>
+      <div class="user-icons">
+        <ul class="user-icons-list">
+          <% @badges.each do |badge| %>
+            <%= button_to badge.content, user_badge_assign_path(category: badge.category, booking: @booking), class: "badge-button" %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

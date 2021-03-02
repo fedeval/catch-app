@@ -12,4 +12,8 @@ class VideoRoomPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def end?
+    true
+  end
 end
