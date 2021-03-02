@@ -25,7 +25,7 @@
     
     <div class="bookings-form">
       
-      <h2 id="hide-show">NEW TIME</h2>
+      <h2 id="hide-show">SELECT A NEW TIME</h2>
         <div class="hidden" id="timepicker">
           <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
             <%= f.text_field :start_time, style: "width: 100%;" %>
