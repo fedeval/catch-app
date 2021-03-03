@@ -4,29 +4,37 @@
     <div class="booking-window">
       
       <div class="instant-matches-list">
+        <div id="title-box">
+          <h2 id="im-arrow-up" class="hidden arrow"><i class="fas fa-chevron-up"></i></h2>
+          <h2 id="instant-matches-title">INSTANT MATCHES</h2>
+        </div>
         
-        <h2>INSTANT MATCHES</h2>
-        
-        <% @bookings.order('start_time ASC').each do |booking| %>   
-          
-          <% unless booking.user_one == current_user || booking.user_two == current_user %>
+        <div class="instant-matches">
+          <% @bookings.order('start_time ASC').each do |booking| %>   
             
-            <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+            <% unless booking.user_one == current_user || booking.user_two == current_user %>
               
-              <div class="instant-match box">
-              
-                <span class="line"></span>          
-                <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'instant-match' %>
-                <span class="line"></span> 
-              </div>
-            <% end %>   
-          <% end %>
-        <% end %>
+              <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+                
+                <div class="instant-match box">
+                
+                  <span class="line"></span>          
+                  <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'instant-match' %>
+                  <span class="line"></span> 
+                </div>
+              <% end %>   
+            <% end %>
+          <% end %>        
+        </div>
       </div>
       
+      <hr>
+
       <div class="bookings-form">
-        
-        <h2 id="hide-show">SELECT A NEW TIME</h2>
+        <div id="title-box">
+          <h2 id="tp-arrow-up" class="arrow"><i class="fas fa-chevron-up"></i></h2>
+          <h2 id="timepicker-title">SELECT A NEW TIME</h2>
+        </div>
           <div class="hidden" id="timepicker">
             <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
               <%= f.text_field :start_time, style: "width: 100%;" %>

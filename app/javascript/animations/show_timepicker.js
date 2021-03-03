@@ -1,13 +1,29 @@
 const showTimepicker = () => {
-  const trigger = document.getElementById('hide-show');
+  const timepickerArrow = document.getElementById('tp-arrow-up');
 
-  trigger.addEventListener("click", function() {
-    trigger.classList.add('hidden');
+  timepickerArrow.addEventListener("click", function() {
     const form = document.getElementById('timepicker');
     form.classList.remove('hidden');
-    const instantMatches = document.querySelector('.instant-matches-list');
+    const instantMatches = document.querySelector('.instant-matches');
     instantMatches.classList.add('hidden');
+    const instantMatchesArrow = document.getElementById('im-arrow-up');
+    instantMatchesArrow.classList.remove('hidden')
+    timepickerArrow.classList.add('hidden')
   });
 }
 
-export { showTimepicker };
+const hideTimepicker = () => {
+  const instantMatchesArrow = document.getElementById('im-arrow-up');
+
+  instantMatchesArrow.addEventListener("click", function() {
+    const form = document.getElementById('timepicker');
+    form.classList.add('hidden');
+    const instantMatches = document.querySelector('.instant-matches');
+    instantMatches.classList.remove('hidden');
+    const timepickerArrow = document.getElementById('tp-arrow-up');
+    timepickerArrow.classList.remove('hidden')
+    instantMatchesArrow.classList.add('hidden')
+  });
+}
+
+export { showTimepicker, hideTimepicker };
