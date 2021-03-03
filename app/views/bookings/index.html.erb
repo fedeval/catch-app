@@ -1,38 +1,40 @@
 <div class="wrapper">
-  
-  <div class="booking-window">
+  <div class="booking-container">
     
-    <div class="instant-matches-list">
+    <div class="booking-window">
       
-      <h2>INSTANT MATCHES</h2>
-      
-      <% @bookings.order('start_time ASC').each do |booking| %>   
+      <div class="instant-matches-list">
         
-        <% unless booking.user_one == current_user || booking.user_two == current_user %>
+        <h2>INSTANT MATCHES</h2>
+        
+        <% @bookings.order('start_time ASC').each do |booking| %>   
           
-          <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+          <% unless booking.user_one == current_user || booking.user_two == current_user %>
             
-            <div class="instant-match box">
-            
-              <span class="line"></span>          
-              <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'instant-match' %>
-              <span class="line"></span> 
-            </div>
-          <% end %>   
-        <% end %>
-      <% end %>
-    </div>
-    
-    <div class="bookings-form">
-      
-      <h2 id="hide-show">SELECT A NEW TIME</h2>
-        <div class="hidden" id="timepicker">
-          <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
-            <%= f.text_field :start_time, style: "width: 100%;" %>
-            <%= submit_tag "ADD NEW TIME", class: 'instant-match box create-btn', style: 'justify-content: center;' %>
+            <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+              
+              <div class="instant-match box">
+              
+                <span class="line"></span>          
+                <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'instant-match' %>
+                <span class="line"></span> 
+              </div>
+            <% end %>   
           <% end %>
+        <% end %>
+      </div>
+      
+      <div class="bookings-form">
+        
+        <h2 id="hide-show">SELECT A NEW TIME</h2>
+          <div class="hidden" id="timepicker">
+            <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
+              <%= f.text_field :start_time, style: "width: 100%;" %>
+              <%= submit_tag "ADD NEW TIME", id: 'form-button' %>
+            <% end %>
 
-        </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>
