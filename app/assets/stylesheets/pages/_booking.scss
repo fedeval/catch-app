@@ -1,0 +1,81 @@
+.booking-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+}
+
+.booking-window {
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: bold;
+  color: rgb(14, 52, 112);
+}
+
+.instant-matches-list {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.bookings-form {
+  padding: 50px 0 100px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 40px;
+  &:hover {
+    font-size: 44px;
+    margin-bottom: 4px;
+  }
+}
+
+.instant-match {
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-weight: bold;
+  color: rgb(14, 52, 112);
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  justify-content: center;
+}
+
+.line {
+  width: 40px;
+  border: 1px solid rgb(14, 52, 112);
+  height: 0px;
+  margin: 0 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+hr {
+  border-top: 5px solid rgb(14, 52, 112);
+  width: 80%;
+}
+
+.arrow {
+  cursor: pointer;
+}

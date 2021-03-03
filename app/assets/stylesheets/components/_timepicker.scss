@@ -1,11 +1,9 @@
-.ui-timepicker-pm {
-  text-align: center;
-  font-size: 20px;
-}
-
-.ui-timepicker-am {
-  text-align: center;
-  font-size: 20px;
+.ui-timepicker-list {
+  li {
+    text-align: center;
+    font-size: 44px;
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 .ui-timepicker-input {
