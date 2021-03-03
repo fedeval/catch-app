@@ -15,7 +15,11 @@
   <body>
     <div class="page-container">
       <div class ="navbar-container">
-        <%= render 'shared/navbar' if !current_page?(root_path) %>
+        <% if current_page?(root_path)  %>
+          <%= render 'shared/home_navbar' %>
+        <% else %>
+          <%= render 'shared/navbar' %>
+        <% end %>
       </div>
       <%= render 'shared/flashes' %>
       <%= yield %>
