@@ -1,37 +1,45 @@
 .booking-btn {
-  color: white;
-  background-color: #073470;
-  border-color:  #fff;
-  padding: 10px 30px;
-  margin-bottom: 6px;
-  border-radius: 5px;
-  width: 100%;
+  color: #12A6FA;
+  background-color: #FFFFFF;
+  border-color:  #82B3FD;
+  padding: 0.7rem 0.75rem;
+  width: 375px;
+  height: 51px;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #073470;
-  border-color:  #fff;
-  border-radius: 5px;
+  color: #12A6FA;
+  background-color:#FFFFFF;
+  border-color:  #82B3FD;
+  border-radius: 25px;
+  width: 375px;
+  height: 51px;
   font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.7rem 0.75rem;
  }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #073470;
+  color: #FFFFFF;
+  background-color: #12A6FA;
   border-color:  #fff;
 }
 
+.btn-primary:active {
+background-color: #009CF4 !important;
+}
+
 .btn-success {
-  color: #fff;
-  background-color: #073470;
+  color: #12A6FA;
+  background-color: #FFFFFF;
+  color: #12A6FA;
   border-color:  #fff;
   border-radius: 5px;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #073470;
+  background-color: #12A6FA;
   border-color:  #fff;
 }
 
