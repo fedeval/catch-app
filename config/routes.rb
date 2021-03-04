@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   post "/user_badge/assign", to: "user_badges#assign"
 
+  post "/friendships/add_friend", to: "friendships#add_friend", as: "add_friend"
+
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
   end
