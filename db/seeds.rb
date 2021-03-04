@@ -32,6 +32,7 @@ end
 
 puts 'creating chatroom'
 Chatroom.create(name: 'susann-and-hektor')
+Chatroom.create(name: 'susann')
 
 puts 'creating badges'
 Badge.create(category: 'funny', content: '😂')

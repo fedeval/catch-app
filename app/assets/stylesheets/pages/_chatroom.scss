@@ -1,0 +1,98 @@
+.message-container p.other {
+    position: relative;
+	background: #f7f7f7;
+	border-radius: .4em;
+    width: 240px;
+    padding: 5px;
+    line-height: 40px;
+    word-wrap: break-word;
+    margin-left: 305px;
+    font-family: 'Fauna One', serif;
+    font-size: 12px;
+}
+
+.message-container p.author {
+    position: relative;
+	background: #f7f7f7;
+	border-radius: .4em;
+    width: 240px;
+    padding: 5px;
+    word-wrap: break-word;
+    margin-left: -60px;
+    font-family: 'Fauna One', serif;
+    font-size: 12px;    
+}
+
+
+.message-container p.other:before {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 94%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-top-color: #f7f7f7;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -1.5px;
+	margin-bottom: -10px;
+}
+
+.message-container p.author:before {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 2%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-top-color: #f7f7f7;
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: -1.5px;
+	margin-bottom: -10px;
+}
+
+.message-container {
+    margin-left: 125px;
+}
+
+.content {
+    margin-left: 63px;
+    margin-right: 63px;
+    margin-top: 40px;
+    height: 90px;
+    font-family: 'Fauna One', serif;
+    font-size: 10px;
+}
+
+.chat {
+    margin-left: 260px; 
+    margin-right: 260px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.5);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.message-container i.other {
+     margin-left: 307px;
+     margin-top: 20px;
+     word-wrap: break-word;
+     font-family: 'Fauna One', serif;
+     font-size: 8px;
+     font-weight: bold;
+
+}
+
+.message-container i.author {
+    margin-left: -58px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    font-family: 'Fauna One', serif;
+    font-size: 8px;
+    font-weight: bold;
+}

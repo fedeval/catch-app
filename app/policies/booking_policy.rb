@@ -12,4 +12,9 @@ class BookingPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def add_friend?
+    user.present?
+  end
 end
+
