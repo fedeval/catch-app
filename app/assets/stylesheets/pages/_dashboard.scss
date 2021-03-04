@@ -4,59 +4,29 @@
   }
 }
 
+@media(min-width: 1140px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 1140px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .dashboard-wrapper {
   padding: 16px;
-  margin: 0 100px;
+  margin: 0 60px;
+  display: flex;
+  justify-content: center;
 }
 
-.dashboard-main {
-  display: flex;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.dashboard-profile {
-  display: flex;
-  width: 390px;
-  flex-direction: column;
-  background: rgba(255,255,255,0.5);
-  padding: 20px;
-  align-items: center;
-  border-radius: 5px;
-  p, h5 {
-    margin: 5px;
-    margin-top: 10px;
-  }
-}
-
-.dashboard-bookings {
-  display: flex;
-  width: 390px;
-  flex-direction: column;
-  background: rgba(255,255,255,0.5);
-  padding: 20px;
-  align-items: center;
-  border-radius: 5px;
-  p {
-    margin: 5px;
-    margin-top: 10px;
-  }
-}
-
-.dashboard-contacts {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  align-items: stretch;
-  width: 390px;
-  background: rgba(255,255,255,0.5);
-  padding: 20px;
-  border-radius: 5px;
-  p {
-    margin: 5px;
-    margin-top: 10px;
-  }
+.dashboard-grid {
+  display: grid;
+  grid-gap: 16px;
+  margin: 16px;
 }
 
 .dashboard-contacts-list {
@@ -73,19 +43,13 @@
   }
 }
 
-.user-info-card {
-  margin-top: 16px;
-  p {
-    font-weight: bold;
-  }
-}
 
-.user-icons {
+.user-badges {
   flex-wrap: wrap;
   text-align: center;
 }
 
-.user-icons-list {
+.user-badges-list {
   display: flex;
   list-style: none;
   flex-wrap: wrap;
@@ -115,20 +79,9 @@
   text-decoration: none;
 }
 
-.unconfirmed-call {
-  background-color: rgba(255,255,255, 0.4);
-}
-
-#dashboard-avatar {
-  height: 160px;
-  width: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-#contacts-avatar {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  object-fit: cover;
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }

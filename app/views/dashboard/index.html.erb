@@ -1,26 +1,34 @@
 <div class="dashboard-wrapper">
 
-    <div class="dashboard-main">
+  <div class="dashboard-grid">
 
-      <div class="dashboard-profile">
+    <div class="dashboard-card">
+        
+      <div class="user-info">
+          
         <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
+          
         <div class="user-description">
           <h5><%= @user.first_name %> <%= @user.last_name %> <i>( <%= @user.username %> )</i></h5>
           <p><%= @user.description %></p>
         </div>
-        <div class="user-info-card">
-          <div class="user-icons">
-            <ul class="user-icons-list">
-              <li>😂<%= @user.received_badges.where(category: 'funny').count %></li>
-              <li>🥳<%= @user.received_badges.where(category: 'party').count %></li>
-              <li>🤗<%= @user.received_badges.where(category: 'nice').count %></li>
-              <li>🧠<%= @user.received_badges.where(category: 'smart').count %></li>
-              <li>👾<%= @user.received_badges.where(category: 'geeky').count %></li>
-            </ul>
-          </div>
+          
+        <div class="user-badges">
+          <ul class="user-badges-list">
+            <li>😂<%= @user.received_badges.where(category: 'funny').count %></li>
+            <li>🥳<%= @user.received_badges.where(category: 'party').count %></li>
+            <li>🤗<%= @user.received_badges.where(category: 'nice').count %></li>
+            <li>🧠<%= @user.received_badges.where(category: 'smart').count %></li>
+            <li>👾<%= @user.received_badges.where(category: 'geeky').count %></li>
+          </ul>
         </div>
       </div>
-      <div class="dashboard-bookings">
+    </div>
+      
+    <div class="dashboard-card">
+        
+      <div class="calls">
+          
         <div class="confirmed-calls" style="text-align: center;">
           <h3>My upcoming calls:</h3>
             <% @bookings.each do |booking| %>
@@ -30,39 +38,53 @@
               <% end %>
             <% end %>
         </div>
+          
         <br>
+          
         <div class="unconfirmed-calls" style="text-align: center;">
           <h3>Slots awaiting for confirmation:</h3>
-              <% @bookings.each do |booking| %>
-                <% unless !booking.user_two.nil? %>
-                  <div class="unconfirmed-call">
-                    <%= booking.start_time.hour %>:<%= booking.start_time.min %>
-                  </div> 
-                  <br>
-                <% end %>
-              <% end %>
-        </div>
-      </div>
-      <div class="dashboard-contacts">        
-        <h3>My favourite contacts:</h3>
-
-        <ul class="dashboard-contacts-list">
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/dacoreggio", id: 'contacts-avatar' %></li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", id: 'contacts-avatar' %></li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/fedeval", id: 'contacts-avatar' %></li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/juan-runs-code", id: 'contacts-avatar' %></li>
-          <li>
-            <%= link_to chatroom_path(Chatroom.where(name: 'susann-and-hektor').first), class: "navbar-brand" do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/susann-dev", id: 'contacts-avatar' %>
+          <% @bookings.each do |booking| %>
+            <% unless !booking.user_two.nil? %>
+              <div class="unconfirmed-call">
+                <%= booking.start_time.hour %>:<%= booking.start_time.min %>
+              </div> 
+              <br>
             <% end %>
-          </li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/
-rkretch91", id: 'contacts-avatar' %></li>
-        <h3> Create a new chat: </h3>
-          <%= simple_form_for Chatroom.new, remote: true do |f| %>
-            <%= f.submit %> 
           <% end %>
-        </ul>
-      </div> 
+        </div>         
+      </div>
     </div>
+      
+    <div class="dashboard-card">
+      
+      <div class="contact-list">
+        <h3>My favourite contacts:</h3>
+        
+        <div class="contacts">
+          <% @users.sample(10).each do |contact| %>
+            
+            <div class="contact-info">
+              
+              <div class="avatar">
+                <% if contact.photo.attached? %>      
+                  <%= cl_image_tag contact.photo.key, class: "contacts-avatar" %></p>
+                <% else %>
+                  <%= image_tag "hektor.jpg", class: "contacts-avatar" %>
+                <% end %>
+              </div>
+              
+              <div class="name">
+                <%= contact.first_name %> <%= contact.last_name %>
+              </div>
+
+              <div class="chat">
+                <i class="fas fa-comments"></i>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>        
+    </div> 
   </div>
+</div>
+
