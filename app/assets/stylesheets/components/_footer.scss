@@ -1,29 +1,59 @@
 .footer {
-  background: black;
+  background: rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
   padding: 0px 50px;
   color: #FFFFFF;
   bottom: 0;   
   width: 100%;
   position: relative;
-}
+
+  background: linear-gradient(270deg, #ffdcc3, #eed1ff, #f7d7e0, #efd2ff);
+      background-size: 800% 800%;
+
+      -webkit-animation: AnimationName 35s ease infinite;
+      -moz-animation: AnimationName 35s ease infinite;
+      animation: AnimationName 35s ease infinite;
+  }
+
+  @-webkit-keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @-moz-keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
 
 .footer .fa-heart {
-  color: #71dbee;}
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
 
 .footer .year {
-  color: #71dbee;}
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
 
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: #71dbee;
-  opacity: 0.5;
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
