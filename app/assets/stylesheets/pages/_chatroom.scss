@@ -1,0 +1,67 @@
+.message-container p.author {
+    position: relative;
+	background: #f7f7f7;
+	border-radius: .4em;
+    width: 240px;
+    padding: 5px;
+    line-height: 40px;
+    word-wrap: break-word;
+    margin-left: 75px;
+}
+
+.message-container p.other {
+    position: relative;
+	background: #f7f7f7;
+	border-radius: .4em;
+    width: 240px;
+    padding: 5px;
+    line-height: 40px;
+    word-wrap: break-word;
+    margin-left: -100px;
+}
+
+
+.message-container p:before {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 94%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-top-color: #f7f7f7;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -1.5px;
+	margin-bottom: -10px;
+}
+
+.message-container {
+    margin-left: 125px;
+}
+
+.content {
+    width: 240px;
+    margin-top: 40px;
+    height: 90px;
+    margin-left: 125px;
+}
+
+.chat {
+    margin-left: 400px; 
+    margin-right: 400px;
+    background-color: blue;
+    border-radius: 5px;
+}
+
+.message-container i.author {
+     margin-left: 70px;
+     margin-top: 20px;
+     word-wrap: break-word;  
+}
+
+.message-container i.other {
+    margin-left: -100px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
