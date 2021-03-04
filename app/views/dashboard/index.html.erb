@@ -5,8 +5,9 @@
     <div class="dashboard-card">
         
       <div class="user-info">
-          
-        <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
+        <div class="user-avatar">
+          <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
+        </div>  
           
         <div class="user-description">
           <h5><%= @user.first_name %> <%= @user.last_name %> <i>( <%= @user.username %> )</i></h5>
