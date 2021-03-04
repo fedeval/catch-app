@@ -26,6 +26,9 @@ class User < ApplicationRecord
   # photo validations
   has_one_attached :photo
 
+  # frindship gem
+  has_friendship
+
   # set_default image whenr user sign up without a photo
   # def set_default_photo
   #  if !self.photo.attached?
