@@ -1,0 +1,25 @@
+<div class="calls">
+    
+  <div class="confirmed-calls">
+    <h3>Upcoming calls</h3>
+      <% @bookings.each do |booking| %>
+        <% unless booking.user_two.nil? %>
+        <div class="call-info">
+          <%= "Meeting with #{booking.user_one.first_name} at #{booking.start_time.hour}:#{booking.start_time.min}" %>
+          <%= link_to "Join Video", video_room_path(VideoRoom.find_by(booking_id: booking.id)), class: 'btn-call' %>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="unconfirmed-calls">
+
+    <h3>TBC</h3>
+    <% @bookings.each do |booking| %>
+      <% unless !booking.user_two.nil? %>
+        <div class="unconfirmed-call">
+          <%= booking.start_time.hour %>:<%= booking.start_time.min %>
+        </div> 
+      <% end %>
+    <% end %>        
+  </div>  
+</div>

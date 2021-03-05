@@ -1,0 +1,26 @@
+<div class="contact-list">
+
+  <div class="contacts">
+    <% @users.sample(10).each do |contact| %>
+      
+      <div class="contact-info">
+        
+        <div class="contact-avatar">
+          <% if contact.photo.attached? %>      
+            <%= cl_image_tag contact.photo.key, class: "contacts-avatar" %></p>
+          <% else %>
+            <%= image_tag "hektor.jpg", class: "contacts-avatar" %>
+          <% end %>
+        </div>
+        
+        <div class="name">
+          <%= contact.first_name %> <%= contact.last_name.first %>.
+        </div>
+
+<!--         <div class="chat-link">
+          <i class="fas fa-comments"></i>
+        </div> -->
+      </div>
+    <% end %>
+  </div>
+</div> 

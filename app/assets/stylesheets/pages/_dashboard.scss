@@ -1,3 +1,8 @@
+// Import partials
+@import "partials/calls";
+@import "partials/contacts";
+
+// Responsiveness
 @media (max-width: 600px) {
   .dashboard-wrapper {
     margin: 0;
@@ -6,7 +11,7 @@
 
 @media(min-width: 1140px) {
   .dashboard-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 4fr;
   }
 }
 
@@ -16,6 +21,7 @@
   }
 }
 
+// Main structure
 .dashboard-wrapper {
   padding: 16px;
   margin: 0 60px;
@@ -29,24 +35,42 @@
   margin: 16px;
 }
 
-.dashboard-contacts-list {
+.dashboard-buttons {
   display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-  li {
-    margin-left: 5px;
-    margin-top: 5px;
-  }
+  margin-bottom: 15px;
 }
 
-// .user-avatar{
-//   width: 100%;
-//   background: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
-// }
+.btn-dashboard {
+  text-decoration: none;
+  color: grey;
+  padding: 10px 0;
+  margin-right: 10px;
+}
+
+.btn-dashboard:hover {
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+.btn-dashboard.active {
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  border-bottom: solid 4px #1271FF;
+}
+
+.dashboard-window {
+  width: 100%;
+  height: 100%;
+}
+
+// User profile
+.user-info {
+  text-align: center;
+}
 
 .user-badges {
   flex-wrap: wrap;
@@ -64,29 +88,3 @@
     margin-left: 20px
   }
 }
-
-.booking-slots {
-  color: white;
-  background-color: grey;
-  border: 2px solid;
-  border-radius: 35px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 14px 30px;
-  position: relative;
-  text-align: center;
-  -webkit-transition-duration: .15s;
-  transition-duration: .15s;
-  text-decoration: none;
-}
-
-.contact-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-

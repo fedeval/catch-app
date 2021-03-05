@@ -2,7 +2,7 @@
 
   <div class="dashboard-grid">
 
-    <div class="dashboard-card">
+    <div class="user-main">
         
       <div class="user-info">
         <div class="user-avatar">
@@ -10,7 +10,8 @@
         </div>  
           
         <div class="user-description">
-          <h5><%= @user.first_name %> <%= @user.last_name %> <i>( <%= @user.username %> )</i></h5>
+          <p id="name"><%= @user.first_name %> <%= @user.last_name %></p>
+          <p><i>( <%= @user.username %> )</i></p>
           <p><%= @user.description %></p>
         </div>
           
@@ -27,65 +28,20 @@
     </div>
       
     <div class="dashboard-card">
-        
-      <div class="calls">
-          
-        <div class="confirmed-calls" style="text-align: center;">
-          <h3>My upcoming calls:</h3>
-            <% @bookings.each do |booking| %>
-              <% unless booking.user_two.nil? %>
-                <%= "Meeting with #{booking.user_one.username} at #{booking.start_time.hour}:#{booking.start_time.min}" %>
-                <%= link_to "Join Video", video_room_path(VideoRoom.find_by(booking_id: booking.id)), class: 'btn btn-primary' %>
-              <% end %>
-            <% end %>
-        </div>
-          
-        <br>
-          
-        <div class="unconfirmed-calls" style="text-align: center;">
-          <h3>Slots awaiting for confirmation:</h3>
-          <% @bookings.each do |booking| %>
-            <% unless !booking.user_two.nil? %>
-              <div class="unconfirmed-call">
-                <%= booking.start_time.hour %>:<%= booking.start_time.min %>
-              </div> 
-              <br>
-            <% end %>
-          <% end %>
-        </div>         
-      </div>
-    </div>
       
-    <div class="dashboard-card">
-      
-      <div class="contact-list">
-        <h3>My favourite contacts:</h3>
-        
-        <div class="contacts">
-          <% @users.sample(10).each do |contact| %>
-            
-            <div class="contact-info">
-              
-              <div class="avatar">
-                <% if contact.photo.attached? %>      
-                  <%= cl_image_tag contact.photo.key, class: "contacts-avatar" %></p>
-                <% else %>
-                  <%= image_tag "hektor.jpg", class: "contacts-avatar" %>
-                <% end %>
-              </div>
-              
-              <div class="name">
-                <%= contact.first_name %> <%= contact.last_name %>
-              </div>
+      <div class="dashboard-header">
 
-              <div class="chat-link">
-                <i class="fas fa-comments"></i>
-              </div>
-            </div>
-          <% end %>
+        <div class="dashboard-buttons">
+          <%= link_to "Calls", dashboard_index_path(view: "calls"), class: "btn-dashboard #{'active' if params[:view] == 'calls'}" %>  <%= link_to "Contacts", dashboard_index_path(view: "contacts") , class: "btn-dashboard #{'active' if params[:view] == 'contacts'}" %>
         </div>
-      </div>        
-    </div> 
+      </div>
+      
+      <div class="dashboard-window">
+        <%= render 'calls' if params[:view] == 'calls' %>
+        <%= render 'contacts' if params[:view] == 'contacts' %>  
+      </div>
+
+    </div>
   </div>
 </div>
 
