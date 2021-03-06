@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 require 'faker'
+require "open-uri"
 
 puts 'cleaning the db...'
 User.destroy_all
@@ -18,16 +19,24 @@ User.create(email: 'federico@test.com', password: '123456', first_name: 'Federic
 User.create(email: 'leonardo@test.com', password: '123456', first_name: 'Leonardo', last_name: 'Dacoreggio', username: 'dacoreggio', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 User.create(email: 'susann@test.com', password: '123456', first_name: 'Susann', last_name: 'Kachler', username: 'susann-dev', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
 User.create(email: 'juan@test.com', password: '123456', first_name: 'Juan', last_name: 'Pao', username: 'juan-runs-code', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')
-User.create(email: 'hektor@test.com', password: '123456', first_name: 'Hektor', last_name: 'Hernandez', username: 'hekterminator', description: 'My picture tells you all you need to know about me')
+
+users = User.all
+users.each do |user|
+  file = URI.open("https://kitt.lewagon.com/placeholder/users/#{user.username}")
+  user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+end
+
 
 puts 'other user seeds...'
 20.times do
-  User.create(email: Faker::Internet.email,
+  other_user = User.create(email: Faker::Internet.email,
               password: '123456',
               first_name: Faker::Name.first_name,
               last_name: Faker::Name.last_name,
               username: Faker::Internet.username(specifier: 5..8),
               description: Faker::Lorem.sentence(word_count: 20))
+  file = URI.open('https://thispersondoesnotexist.com/image')
+  other_user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 end
 
 puts 'creating chatroom'
@@ -48,7 +57,7 @@ User.all.each do |receiver|
   User.all.each do |sender|
     unless  receiver == sender
       UserBadge.create(sender_id: sender.id,
-                       receiver_id: receiver.id, 
+                       receiver_id: receiver.id,
                        badge_id: badges.sample.id)
     end
   end
