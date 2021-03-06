@@ -13,7 +13,7 @@ const initTimepicker = () => {
     'show2400': true,
     'step': 10,
     'minTime': minTime,
-    'maxTime': (parseInt(minTime, 10) + 3).toString(),
+    'maxTime': (parseInt(minTime, 10) + 2).toString(),
     'listWidth': 1,
   });
 }

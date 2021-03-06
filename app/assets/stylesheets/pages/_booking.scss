@@ -25,14 +25,15 @@ h2 {
 }
 
 .instant-matches-list {
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .bookings-form {
-  padding: 50px 0 100px 0;
+  padding: 25px 0;
   display: flex;
   align-items: center;
+
   justify-content: center;
   flex-direction: column;
 }
@@ -60,20 +61,8 @@ h2 {
   justify-content: center;
 }
 
-.line {
-  width: 40px;
-  border: 1px solid rgb(14, 52, 112);
-  height: 0px;
-  margin: 0 20px;
-}
-
 .hidden {
   display: none;
-}
-
-hr {
-  border-top: 5px solid rgb(14, 52, 112);
-  width: 80%;
 }
 
 .arrow {
