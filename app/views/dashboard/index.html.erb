@@ -3,12 +3,16 @@
   <div class="dashboard-grid">
 
     <div class="dashboard-card" id="user">
-        
+
       <div class="user-info">
         <div class="user-avatar">
-          <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
-        </div>  
-        
+          <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, id: "dashboard-avatar" %></p>
+            <% else %>
+              <%= image_tag "hektor.jpg", id: "dashboard-avatar" %>
+            <% end %>
+        </div>
+
         <div class="user-demo-badges">
           <div class="user-demo">
             <h4 id="name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h4>
@@ -31,7 +35,7 @@
               <span class="badge">
                 <div>🧠</div>
                 <div><%= @user.received_badges.where(category: 'smart').count %></div>
-              </span>  
+              </span>
               <span class="badge">
                 <div>👾</div>
                 <div><%= @user.received_badges.where(category: 'geeky').count %></div>
@@ -40,17 +44,17 @@
         </div>
       </div>
 
-      
+
       <div class="user-description">
         <h5>About Me</h5>
         <i>"<%= @user.description %>"</i>
       </div>
-      
+
       <%= render 'calls' %>
     </div>
-      
+
     <div class="dashboard-card">
-      
+
       <div class="dashboard-header">
 
         <div class="dashboard-buttons">
@@ -58,9 +62,9 @@
           <%= link_to "Pending", dashboard_index_path(view: "pending") , class: "btn-dashboard #{'active' if params[:view] == 'pending'}" %>
         </div>
       </div>
-      
+
       <div class="dashboard-window">
-        <%= render 'contacts' if params[:view] == 'contacts' %>  
+        <%= render 'contacts' if params[:view] == 'contacts' %>
         <%= render 'pending' if params[:view] == 'pending' %>
       </div>
     </div>
