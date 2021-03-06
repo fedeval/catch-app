@@ -1,0 +1,53 @@
+<div class="contact-list">
+  <div class="contacts">
+    <% @user.requested_friends.each do |contact| %>
+
+      <div class="contact-card">
+        <div class="contact-info">
+          <div class="contact-avatar">
+            <% if contact.photo.attached? %>
+              <%= cl_image_tag contact.photo.key, class: "contacts-avatar" %>
+            <% else %>
+              <%= image_tag "hektor.jpg", class: "contacts-avatar" %>
+            <% end %>
+          </div>
+
+          <div class="name">
+            <%= contact.first_name %> <%= contact.last_name.first %>.
+          </div>
+
+        </div>
+        <div class="approve-link">
+          <%= link_to accept_request_path(contact_id: contact.id), method: :post do %>
+            <i class="far fa-check-circle"></i>
+        <% end %>
+        </div>
+        <div class="deny-link">
+          <i class="far fa-times-circle"></i>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h5>Sent requests pending confirmation</h5>
+  <div class="contacts">
+    <% @user.pending_friends.each do |contact| %>
+
+      <div class="contact-card">
+        <div class="contact-info">
+          <div class="contact-avatar">
+            <% if contact.photo.attached? %>
+              <%= cl_image_tag contact.photo.key, class: "contacts-avatar" %>
+            <% else %>
+              <%= image_tag "hektor.jpg", class: "contacts-avatar" %>
+            <% end %>
+          </div>
+
+          <div class="name">
+            <%= contact.first_name %> <%= contact.last_name.first %>.
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
