@@ -1,0 +1,36 @@
+.calls {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.confirmed-call {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.video-link {
+  border-radius: 25px;
+  background: rgba(255,255,255,0.3);
+  padding: 15px 0px;
+  transition: 0.5s ease-in;
+  &:hover {
+    background: white;
+  }
+}
+
+.unconfirmed-calls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+}
+
+.unconfirmed-call {
+  margin: 10px;
+  border-radius: 10px; 
+  border: 1px solid rgba(255,255,255,0.9);
+  padding: 10px 15px;
+  text-align: center;
+  justify-self: start;
+}

@@ -22,3 +22,32 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+#dashboard-avatar {
+  height: 120px;
+  width: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  // background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  // padding: 2px;
+}
+
+.contacts-avatar {
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 10px;
+//   background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+//   padding: 2px;
+}
+
+.call-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 10px;
+  // background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  // padding: 2px;
+}

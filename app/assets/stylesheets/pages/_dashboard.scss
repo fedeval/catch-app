@@ -1,134 +1,118 @@
+// Import partials
+@import "partials/calls";
+@import "partials/contacts";
+
+// Responsiveness
 @media (max-width: 600px) {
   .dashboard-wrapper {
     margin: 0;
   }
 }
 
+@media(min-width: 1140px) {
+  .dashboard-grid {
+    grid-template-columns: 35% 65%;
+  }
+}
+
+@media(max-width: 1140px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Main structure
 .dashboard-wrapper {
-  padding: 16px;
-  margin: 0 100px;
-}
-
-.dashboard-main {
+  padding: 0 16px 20px 16px;
+  margin: 0 60px;
   display: flex;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.dashboard-profile {
+.dashboard-grid {
+  display: grid;
+  grid-gap: 16px;
+  margin: 16px;
+}
+
+.dashboard-buttons {
   display: flex;
-  width: 390px;
-  flex-direction: column;
-  background: rgba(255,255,255,0.5);
-  padding: 20px;
-  align-items: center;
-  border-radius: 5px;
-  p, h5 {
-    margin: 5px;
-    margin-top: 10px;
-  }
+  margin-bottom: 15px;
 }
 
-.dashboard-bookings {
-  display: flex;
-  width: 390px;
-  flex-direction: column;
-  background: rgba(255,255,255,0.5);
-  padding: 20px;
-  align-items: center;
-  border-radius: 5px;
-  p {
-    margin: 5px;
-    margin-top: 10px;
-  }
+.btn-dashboard {
+  text-decoration: none;
+  color: grey;
+  padding: 10px 0;
+  margin-right: 10px;
 }
 
-.dashboard-contacts {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  align-items: stretch;
-  width: 390px;
-  background: rgba(255,255,255,0.5);
-  padding: 20px;
-  border-radius: 5px;
-  p {
-    margin: 5px;
-    margin-top: 10px;
-  }
-}
-
-.dashboard-contacts-list {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-  li {
-    margin-left: 5px;
-    margin-top: 5px;
-  }
-}
-
-.user-info-card {
-  margin-top: 16px;
-  p {
-    font-weight: bold;
-  }
-}
-
-.user-icons {
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.user-icons-list {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  align-items: stretch;
-  width: 100%;
-  padding: 0;
-  li {
-    margin-left: 20px
-  }
-}
-
-.booking-slots {
-  color: white;
-  background-color: grey;
-  border: 2px solid;
-  border-radius: 35px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 14px 30px;
-  position: relative;
-  text-align: center;
-  -webkit-transition-duration: .15s;
-  transition-duration: .15s;
+.btn-dashboard:hover {
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
 }
 
-.unconfirmed-call {
-  background-color: rgba(255,255,255, 0.4);
+.btn-dashboard.active {
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  border-bottom: solid 4px #1271FF;
 }
 
-#dashboard-avatar {
-  height: 160px;
-  width: 160px;
-  border-radius: 50%;
-  object-fit: cover;
+.dashboard-window {
+  width: 100%;
+  height: 100%;
 }
 
-#contacts-avatar {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  object-fit: cover;
+.dashboard-header {
+  align-self: start;
+}
+
+// User profile
+#user {
+  justify-content: flex-start;
+}
+
+#name {
+  margin: 0;
+}
+
+.dashboard-card h5 {
+  font-weight: bold;
+  margin: 30px 20px 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.user-info {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-demo-badges {
+  flex-grow: 1;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-badges {
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  height: 100%;
+  column-gap: 5px;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 18px;
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
 }

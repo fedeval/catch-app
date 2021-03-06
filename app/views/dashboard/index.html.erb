@@ -1,68 +1,69 @@
 <div class="dashboard-wrapper">
 
-    <div class="dashboard-main">
+  <div class="dashboard-grid">
 
-      <div class="dashboard-profile">
-        <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
-        <div class="user-description">
-          <h5><%= @user.first_name %> <%= @user.last_name %> <i>( <%= @user.username %> )</i></h5>
-          <p><%= @user.description %></p>
-        </div>
-        <div class="user-info-card">
-          <div class="user-icons">
-            <ul class="user-icons-list">
-              <li>😂<%= @user.received_badges.where(category: 'funny').count %></li>
-              <li>🥳<%= @user.received_badges.where(category: 'party').count %></li>
-              <li>🤗<%= @user.received_badges.where(category: 'nice').count %></li>
-              <li>🧠<%= @user.received_badges.where(category: 'smart').count %></li>
-              <li>👾<%= @user.received_badges.where(category: 'geeky').count %></li>
-            </ul>
+    <div class="dashboard-card" id="user">
+        
+      <div class="user-info">
+        <div class="user-avatar">
+          <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
+        </div>  
+        
+        <div class="user-demo-badges">
+          <div class="user-demo">
+            <h4 id="name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h4>
+            <i>( <%= @user.username %> )</i>
+          </div>
+
+          <div class="user-badges">
+              <span class="badge">
+                <div>😂</div>
+                <div> <%= @user.received_badges.where(category: 'funny').count %></div>
+              </span>
+              <span class="badge">
+                <div>🥳</div>
+                <div><%= @user.received_badges.where(category: 'party').count %></div>
+              </span>
+              <span class="badge">
+                <div>🤗</div>
+                <div><%= @user.received_badges.where(category: 'nice').count %></div>
+              </span>
+              <span class="badge">
+                <div>🧠</div>
+                <div><%= @user.received_badges.where(category: 'smart').count %></div>
+              </span>  
+              <span class="badge">
+                <div>👾</div>
+                <div><%= @user.received_badges.where(category: 'geeky').count %></div>
+              </span>
           </div>
         </div>
       </div>
-      <div class="dashboard-bookings">
-        <div class="confirmed-calls" style="text-align: center;">
-          <h3>My upcoming calls:</h3>
-            <% @bookings.each do |booking| %>
-              <% unless booking.user_two.nil? %>
-                <%= "Meeting with #{booking.user_one.username} at #{booking.start_time.hour}:#{booking.start_time.min}" %>
-                <%= link_to "Join Video", video_room_path(VideoRoom.find_by(booking_id: booking.id)), class: 'btn btn-primary' %>
-              <% end %>
-            <% end %>
-        </div>
-        <br>
-        <div class="unconfirmed-calls" style="text-align: center;">
-          <h3>Slots awaiting for confirmation:</h3>
-              <% @bookings.each do |booking| %>
-                <% unless !booking.user_two.nil? %>
-                  <div class="unconfirmed-call">
-                    <%= booking.start_time.hour %>:<%= booking.start_time.min %>
-                  </div>
-                  <br>
-                <% end %>
-              <% end %>
+
+      
+      <div class="user-description">
+        <h5>About Me</h5>
+        <i>"<%= @user.description %>"</i>
+      </div>
+      
+      <%= render 'calls' %>
+    </div>
+      
+    <div class="dashboard-card">
+      
+      <div class="dashboard-header">
+
+        <div class="dashboard-buttons">
+          <%= link_to "Contacts", dashboard_index_path(view: "contacts") , class: "btn-dashboard #{'active' if params[:view] == 'contacts'}" %>
+          <%= link_to "Pending", dashboard_index_path(view: "pending") , class: "btn-dashboard #{'active' if params[:view] == 'pending'}" %>
         </div>
       </div>
-      <div class="dashboard-contacts">
-        <h3>My favourite contacts:</h3>
-
-        <ul class="dashboard-contacts-list">
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/dacoreggio", id: 'contacts-avatar' %></li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", id: 'contacts-avatar' %></li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/fedeval", id: 'contacts-avatar' %></li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/juan-runs-code", id: 'contacts-avatar' %></li>
-          <li>
-            <%= link_to chatroom_path(Chatroom.where(name: 'susann-and-hektor').first), class: "navbar-brand" do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/susann-dev", id: 'contacts-avatar' %>
-            <% end %>
-          </li>
-          <li><%= image_tag "https://kitt.lewagon.com/placeholder/users/
-rkretch91", id: 'contacts-avatar' %></li>
-        <h3> Create a new chat: </h3>
-          <%= simple_form_for Chatroom.new, remote: true do |f| %>
-            <%= f.submit %>
-          <% end %>
-        </ul>
+      
+      <div class="dashboard-window">
+        <%= render 'contacts' if params[:view] == 'contacts' %>  
+        <%= render 'pending' if params[:view] == 'pending' %>
       </div>
     </div>
   </div>
+</div>
+
