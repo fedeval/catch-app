@@ -11,9 +11,13 @@
 }
 
 .video-link {
+  border-radius: 25px;
   background: rgba(255,255,255,0.3);
-  padding: 10px 0;
-  border-radius: 10px;
+  padding: 15px 0px;
+  transition: 0.5s ease-in;
+  &:hover {
+    background: white;
+  }
 }
 
 .unconfirmed-calls {
@@ -26,7 +30,7 @@
   margin: 10px;
   border-radius: 10px; 
   border: 1px solid rgba(255,255,255,0.9);
-  padding: 5px;
+  padding: 10px 15px;
   text-align: center;
   justify-self: start;
 }

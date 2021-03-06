@@ -23,7 +23,7 @@
 
 // Main structure
 .dashboard-wrapper {
-  padding: 16px;
+  padding: 0 16px 20px 16px;
   margin: 0 60px;
   display: flex;
   justify-content: center;
@@ -67,6 +67,10 @@
   height: 100%;
 }
 
+.dashboard-header {
+  align-self: start;
+}
+
 // User profile
 #user {
   justify-content: flex-start;
@@ -78,8 +82,8 @@
 
 .dashboard-card h5 {
   font-weight: bold;
-  margin: 15px 20px 5px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  margin: 30px 20px 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .user-info {
@@ -108,7 +112,7 @@
   flex-direction: column;
   justify-content: space-around;
   font-size: 18px;
-  border: 1px solid rgba(255,255,255,1);
-  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.3);
   border-radius: 10px;
 }

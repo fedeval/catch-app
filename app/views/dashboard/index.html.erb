@@ -54,11 +54,13 @@
 
         <div class="dashboard-buttons">
           <%= link_to "Contacts", dashboard_index_path(view: "contacts") , class: "btn-dashboard #{'active' if params[:view] == 'contacts'}" %>
+          <%= link_to "Pending", dashboard_index_path(view: "pending") , class: "btn-dashboard #{'active' if params[:view] == 'pending'}" %>
         </div>
       </div>
       
       <div class="dashboard-window">
         <%= render 'contacts' if params[:view] == 'contacts' %>  
+        <%= render 'pending' if params[:view] == 'pending' %>
       </div>
 
     </div>
