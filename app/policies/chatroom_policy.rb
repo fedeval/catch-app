@@ -1,6 +1,6 @@
 class ChatroomPolicy < ApplicationPolicy
   def show?
-    return true
+   return true
   end
 
   def create?
