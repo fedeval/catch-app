@@ -4,4 +4,7 @@ class UserPolicy < ApplicationPolicy
       scope.all
     end
   end
+  def accept_request?
+    true
+  end
 end

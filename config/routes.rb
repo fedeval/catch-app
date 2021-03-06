@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   post "/friendships/add_friend", to: "friendships#add_friend", as: "add_friend"
 
+  post "/friendships/accept_request", to: "friendships#accept_request", as: "accept_request"
+
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
   end

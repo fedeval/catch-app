@@ -7,6 +7,13 @@ class FriendshipsController < ApplicationController
     authorize(booking)
   end
 
+  def accept_request
+    contact = User.find(params[:contact_id])
+    current_user.accept_request(contact)
+    authorize(contact)
+    redirect_to dashboard_index_path(view: "contacts")
+  end
+
   # def on_friendship_accepted(friendship)
 
   # end
