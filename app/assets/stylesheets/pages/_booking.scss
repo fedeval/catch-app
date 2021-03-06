@@ -24,11 +24,11 @@ h2 {
   background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding-bottom: 10px;
 }
 
 .instant-matches-list {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 
 .instant-matches {
@@ -38,7 +38,7 @@ h2 {
 }
 
 .bookings-form {
-  padding: 25px 0;
+  padding: 15px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,6 +82,8 @@ h2 {
 
 #timepicker-btn {
   width: 100%;
+  font-weight: bold;
+  font-family: "Playfair Display"
 }
 
 .arrow {
