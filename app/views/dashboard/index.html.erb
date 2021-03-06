@@ -2,29 +2,50 @@
 
   <div class="dashboard-grid">
 
-    <div class="user-main">
+    <div class="dashboard-card" id="user">
         
       <div class="user-info">
         <div class="user-avatar">
           <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
         </div>  
-          
-        <div class="user-description">
-          <p id="name"><%= @user.first_name %> <%= @user.last_name %></p>
-          <p><i>( <%= @user.username %> )</i></p>
-          <p><%= @user.description %></p>
-        </div>
-          
-        <div class="user-badges">
-          <ul class="user-badges-list">
-            <li>😂<%= @user.received_badges.where(category: 'funny').count %></li>
-            <li>🥳<%= @user.received_badges.where(category: 'party').count %></li>
-            <li>🤗<%= @user.received_badges.where(category: 'nice').count %></li>
-            <li>🧠<%= @user.received_badges.where(category: 'smart').count %></li>
-            <li>👾<%= @user.received_badges.where(category: 'geeky').count %></li>
-          </ul>
+        
+        <div class="user-demo-badges">
+          <div class="user-demo">
+            <h4 id="name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></h4>
+            <i>( <%= @user.username %> )</i>
+          </div>
+
+          <div class="user-badges">
+              <span class="badge">
+                <div>😂</div>
+                <div> <%= @user.received_badges.where(category: 'funny').count %></div>
+              </span>
+              <span class="badge">
+                <div>🥳</div>
+                <div><%= @user.received_badges.where(category: 'party').count %></div>
+              </span>
+              <span class="badge">
+                <div>🤗</div>
+                <div><%= @user.received_badges.where(category: 'nice').count %></div>
+              </span>
+              <span class="badge">
+                <div>🧠</div>
+                <div><%= @user.received_badges.where(category: 'smart').count %></div>
+              </span>  
+              <span class="badge">
+                <div>👾</div>
+                <div><%= @user.received_badges.where(category: 'geeky').count %></div>
+              </span>
+          </div>
         </div>
       </div>
+      
+      <div class="user-description">
+        <h5>About Me</h5>
+        <i>"<%= @user.description %>"</i>
+      </div>
+      
+      <%= render 'calls' %>
     </div>
       
     <div class="dashboard-card">
@@ -32,12 +53,11 @@
       <div class="dashboard-header">
 
         <div class="dashboard-buttons">
-          <%= link_to "Calls", dashboard_index_path(view: "calls"), class: "btn-dashboard #{'active' if params[:view] == 'calls'}" %>  <%= link_to "Contacts", dashboard_index_path(view: "contacts") , class: "btn-dashboard #{'active' if params[:view] == 'contacts'}" %>
+          <%= link_to "Contacts", dashboard_index_path(view: "contacts") , class: "btn-dashboard #{'active' if params[:view] == 'contacts'}" %>
         </div>
       </div>
       
       <div class="dashboard-window">
-        <%= render 'calls' if params[:view] == 'calls' %>
         <%= render 'contacts' if params[:view] == 'contacts' %>  
       </div>
 
