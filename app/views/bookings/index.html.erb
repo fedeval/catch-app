@@ -16,8 +16,8 @@
               
               <% if booking.start_time > Time.now && booking.start_time < Time.now + (2 * 3600) %>
                 
-                <div class="instant-match box">
-                  <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'instant-match' %>
+                <div class="instant-match">
+                  <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'btn-match' %>
                 </div>
               <% end %>   
             <% end %>

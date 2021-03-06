@@ -21,7 +21,9 @@
 h2 {
   font-size: 44px;
   font-weight: bold;
-  color: rgb(14, 52, 112);
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .instant-matches-list {
@@ -33,33 +35,40 @@ h2 {
   padding: 25px 0;
   display: flex;
   align-items: center;
-
   justify-content: center;
   flex-direction: column;
 }
 
-.box {
-  display: flex;
-  align-items: center;
+.button_to {
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
   margin-bottom: 10px;
   font-size: 40px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.3);
+  transition: 0.5s ease-in;
   &:hover {
-    font-size: 44px;
-    margin-bottom: 4px;
+    background: white;
   }
 }
 
+
 .instant-match {
-  width: 100%;
-  background-color: rgba(0,0,0,0);
-  border: none;
-  font-weight: bold;
-  color: rgb(14, 52, 112);
-  letter-spacing: 2px;
-  font-variant-numeric: tabular-nums;
-  display: flex;
-  justify-content: center;
 }
+
+// .instant-match {
+//   margin: 5px;
+//   padding: 10px;
+//   background: rgba(255,255,255,0.3);
+//   border-radius: 10px;
+//   border: 1px solid rgba(255,255,255,0.5);
+//   font-weight: bold;
+//   color: rgb(14, 52, 112);
+//   &:hover {
+//     font-size: 24px;
+//     margin-bottom: 4px;
+//   }
+// }
 
 .hidden {
   display: none;
