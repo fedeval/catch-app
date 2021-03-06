@@ -1,0 +1,5 @@
+class AddFriendshipToChatrooms < ActiveRecord::Migration[6.0]
+  def change
+    add_reference :chatrooms, :friendship, null: false, foreign_key: true
+  end
+end
