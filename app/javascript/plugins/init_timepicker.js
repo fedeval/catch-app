@@ -2,7 +2,8 @@ import timepicker from 'timepicker';
 
 
 const initTimepicker = () => {
-  
+  const newBooking = document.getElementById('new_booking'); 
+  if (!newBooking) return;
   const currentHour = parseInt(document.getElementById('new_booking').dataset.currentHour, 10)
   const currentMinutes = parseInt(document.getElementById('new_booking').dataset.currentMinutes, 10)
   let minTime = calculateMinTime(currentHour, currentMinutes)

@@ -8,9 +8,18 @@
   <% end %>
 
   <div class ="content">
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+    <%= simple_form_for [ @chatroom, @message ], html: {id: "message_form"}, remote: true do |f| %>
       <%= f.input :content, label: false, autofocus: true, placeholder: "Message ##{@chatroom.name}" %>
     <% end %>
   </div>
 </div>
 
+<script>
+const form = document.getElementById("message_form")
+console.log(form);
+form.addEventListener("submit", (event) => {
+  event.preventDefault()
+  form.submit()
+  form.reset ()
+  })
+  </script>

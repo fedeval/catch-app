@@ -1,5 +1,6 @@
 const showTimepicker = () => {
   const timepickerArrow = document.getElementById('tp-arrow-up');
+  if (!timepickerArrow) return;
 
   timepickerArrow.addEventListener("click", function() {
     const form = document.getElementById('timepicker');
@@ -14,7 +15,7 @@ const showTimepicker = () => {
 
 const hideTimepicker = () => {
   const instantMatchesArrow = document.getElementById('im-arrow-down');
-
+  if (!instantMatchesArrow) return;
   instantMatchesArrow.addEventListener("click", function() {
     const form = document.getElementById('timepicker');
     form.classList.add('hidden');
