@@ -28,12 +28,14 @@
       <div class="bookings-form">
         <div id="title-box">
           <h2 id="tp-arrow-up" class="arrow"><i class="fas fa-chevron-up"></i></h2>
-          <h2 id="timepicker-title">... or Add a New Time</h2>
+          <h2 id="timepicker-title">... or Choose a New Time</h2>
         </div>
           <div class="hidden" id="timepicker">
             <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
               <%= f.text_field :start_time, style: "width: 100%;" %>
-              <%= submit_tag "ADD NEW TIME", id: 'form-button' %>
+              <div class="submit-btn">
+                <%= submit_tag "Add Time", class: 'btn-match', id: 'timepicker-btn' %>
+              </div>
             <% end %>
 
           </div>

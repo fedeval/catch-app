@@ -52,7 +52,7 @@ h2 {
 
 .instant-match {
   margin-bottom: 10px;
-  font-size: 40px;
+  font-size: 30px;
   border-radius: 50px;
   background: rgba(255,255,255,0.3);
   transition: 0.5s ease-in;
@@ -61,8 +61,27 @@ h2 {
   }
 }
 
+.submit-btn {
+  margin-bottom: 10px;
+  font-size: 30px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.3);
+  transition: 0.5s ease-in;
+  &:hover {
+    background: white;
+  }
+}
+
+#timepicker {
+  width: 100%;
+}
+
 .hidden {
   display: none;
+}
+
+#timepicker-btn {
+  width: 100%;
 }
 
 .arrow {
