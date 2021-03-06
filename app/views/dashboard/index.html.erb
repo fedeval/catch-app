@@ -37,13 +37,13 @@
                 <% unless !booking.user_two.nil? %>
                   <div class="unconfirmed-call">
                     <%= booking.start_time.hour %>:<%= booking.start_time.min %>
-                  </div> 
+                  </div>
                   <br>
                 <% end %>
               <% end %>
         </div>
       </div>
-      <div class="dashboard-contacts">        
+      <div class="dashboard-contacts">
         <h3>My favourite contacts:</h3>
 
         <ul class="dashboard-contacts-list">
@@ -60,9 +60,9 @@
 rkretch91", id: 'contacts-avatar' %></li>
         <h3> Create a new chat: </h3>
           <%= simple_form_for Chatroom.new, remote: true do |f| %>
-            <%= f.submit %> 
+            <%= f.submit %>
           <% end %>
         </ul>
-      </div> 
+      </div>
     </div>
   </div>
