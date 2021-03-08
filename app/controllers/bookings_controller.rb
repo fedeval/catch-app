@@ -14,6 +14,8 @@ class BookingsController < ApplicationController
     if @booking.save
       # redirect_to dashboard_index_path
     else
+      @bookings = policy_scope(Booking)
+      @booking = Booking.new
       render 'bookings/index'
     end
   end
