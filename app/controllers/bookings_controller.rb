@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     authorize(@booking)
 
     if @booking.save
-      redirect_to dashboard_index_path
+      # redirect_to dashboard_index_path
     else
       render 'bookings/index'
     end
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
 
     authorize(@booking)
     if @booking.save
-      redirect_to dashboard_index_path
+      # redirect_to dashboard_index_path
     else
       render 'bookings/index'
     end

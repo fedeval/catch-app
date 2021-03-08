@@ -12,12 +12,12 @@
         <div class="instant-matches">
           <% @bookings.order('start_time ASC').each do |booking| %>   
             
-            <% unless booking.user_one == current_user || booking.user_two == current_user %>
+            <% if booking.user_one != current_user && booking.user_two.nil? %>
               
               <% if booking.start_time > Time.now && booking.start_time < Time.now + (2 * 3600) %>
                 
                 <div class="instant-match">
-                  <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'btn-match' %>
+                  <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, data: { toggle: 'modal', target: '#instant-modal', user: booking.user_one.first_name }, class: 'btn-match' %>
                 </div>
               <% end %>   
             <% end %>
@@ -34,7 +34,7 @@
             <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
               <%= f.text_field :start_time, style: "width: 100%;" %>
               <div class="submit-btn">
-                <%= submit_tag "Add Time", class: 'btn-match', id: 'timepicker-btn' %>
+                <%= submit_tag "Add Time", data: { toggle: 'modal', target: '#schedule-modal' }, class: 'btn-match', id: 'timepicker-btn' %>
               </div>
             <% end %>
 
@@ -43,3 +43,6 @@
     </div>
   </div>
 </div>
+
+<!-- Modals -->
+<%= render 'modals' %>

@@ -1,0 +1,43 @@
+<div class="modal fade" id="instant-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">It's a match!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-message"></p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Close", bookings_path, class: 'btn btn-secondary' %>
+        <div class="match-button-background">
+          <%= link_to 'Go To Dashboard', dashboard_index_path(view: 'contacts'), class: 'btn-match' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="schedule-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Added a new slot.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-message">We have created a new slot and added it to your dashboard. We will let you know once a match happens.</p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Close", bookings_path, class: 'btn btn-secondary' %>
+        <div class="match-button-background">
+          <%= link_to 'Go To Dashboard', dashboard_index_path(view: 'contacts'), class: 'btn-match' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
