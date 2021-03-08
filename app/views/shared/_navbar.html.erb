@@ -18,7 +18,7 @@
             <%= image_tag "hektor.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown talkbubble", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Dashboard", dashboard_index_path(view: "calls"), class: "dropdown-item" %>
+            <%= link_to "Dashboard", dashboard_index_path(view: "contacts"), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

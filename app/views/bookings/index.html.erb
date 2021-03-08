@@ -5,40 +5,37 @@
       
       <div class="instant-matches-list">
         <div id="title-box">
-          <h2 id="instant-matches-title">INSTANT MATCHES</h2>
+          <h2 id="instant-matches-title">Pick an Instant Match...</h2>
           <h2 id="im-arrow-down" class="hidden arrow"><i class="fas fa-chevron-down"></i></h2>
         </div>
         
         <div class="instant-matches">
           <% @bookings.order('start_time ASC').each do |booking| %>   
             
-            <% unless booking.user_one == current_user || booking.user_two == current_user %>
+            <% if booking.user_one != current_user && booking.user_two.nil? %>
               
-              <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
+              <% if booking.start_time > Time.now + (1 * 3600) && booking.start_time < Time.now + (3 * 3600) %>
                 
-                <div class="instant-match box">
-                
-                  <span class="line"></span>          
-                  <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, class: 'instant-match' %>
-                  <span class="line"></span> 
+                <div class="instant-match">
+                  <%= button_to "#{booking.start_time.strftime "%H:%M"}", booking_path(booking), method: :patch, data: { toggle: 'modal', target: '#instant-modal', user: booking.user_one.first_name }, class: 'btn-match' %>
                 </div>
               <% end %>   
             <% end %>
           <% end %>        
         </div>
       </div>
-      
-      <hr>
 
       <div class="bookings-form">
         <div id="title-box">
-          <h2 id="tp-arrow-up" class="arrow"><i class="fas fa-chevron-up"></i></h2>
-          <h2 id="timepicker-title">SELECT A NEW TIME</h2>
+<!--           <h2 id="tp-arrow-up" class="arrow"><i class="fas fa-chevron-up"></i></h2> -->
+          <h2 id="timepicker-title">... or Choose a New Time</h2>
         </div>
-          <div class="hidden" id="timepicker">
-            <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min } do |f| %>
+          <div id="timepicker">
+            <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min, unavailable_times: Booking.unavailable_times } do |f| %>
               <%= f.text_field :start_time, style: "width: 100%;" %>
-              <%= submit_tag "ADD NEW TIME", id: 'form-button' %>
+              <div class="submit-btn">
+                <%= submit_tag "Add Time", data: { toggle: 'modal', target: '#schedule-modal' }, class: 'btn-match', id: 'timepicker-btn' %>
+              </div>
             <% end %>
 
           </div>
@@ -46,3 +43,6 @@
     </div>
   </div>
 </div>
+
+<!-- Modals -->
+<%= render 'modals' %>

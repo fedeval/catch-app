@@ -12,8 +12,10 @@ class BookingsController < ApplicationController
     authorize(@booking)
 
     if @booking.save
-      redirect_to dashboard_index_path
+      # redirect_to dashboard_index_path
     else
+      @bookings = policy_scope(Booking)
+      @booking = Booking.new
       render 'bookings/index'
     end
   end
@@ -26,7 +28,7 @@ class BookingsController < ApplicationController
 
     authorize(@booking)
     if @booking.save
-      redirect_to dashboard_index_path
+      # redirect_to dashboard_index_path
     else
       render 'bookings/index'
     end

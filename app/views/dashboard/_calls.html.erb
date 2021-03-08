@@ -6,7 +6,7 @@
         <% unless booking.user_two.nil? %>
         <div class="confirmed-call">
           <% other_user = current_user == booking.user_one ? booking.user_two : booking.user_one %>
-          <% name_time = "#{other_user.first_name} - #{booking.start_time.hour}:#{booking.start_time.min}" %>            
+          <% name_time = "#{other_user.first_name} - #{booking.start_time.strftime "%H:%M"}" %>            
           <div class="video-link">
             <%= link_to video_room_path(VideoRoom.find_by(booking_id: booking.id)), class: "btn-call" do %>
               <i class="fas fa-video"></i> <%= name_time %>
@@ -22,7 +22,7 @@
     <% @bookings.each do |booking| %>
       <% unless !booking.user_two.nil? %>
         <div class="unconfirmed-call">
-          <%= booking.start_time.hour %>:<%= booking.start_time.min %>
+          <%= booking.start_time.strftime "%H:%M" %>
         </div> 
       <% end %>
     <% end %>        

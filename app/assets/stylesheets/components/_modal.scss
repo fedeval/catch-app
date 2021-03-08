@@ -1,0 +1,17 @@
+.modal-content {
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.3 );
+  border: 1px solid rgba(255,255,255,0.9);
+  backdrop-filter: blur(5.0px);
+  color: white;
+}
+
+.match-button-background {
+  background: rgba(255,255,255,0.3);
+  transition: 0.5s ease-in;
+  border-radius: 25px;
+  padding: 4px 0;
+  &:hover {
+    background: white;
+  }
+}

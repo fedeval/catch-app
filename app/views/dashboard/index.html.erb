@@ -7,7 +7,7 @@
       <div class="user-info">
         <div class="user-avatar">
           <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key, id: "dashboard-avatar" %></p>
+              <%= cl_image_tag @user.photo.key, id: "dashboard-avatar" %>
             <% else %>
               <%= image_tag "hektor.jpg", id: "dashboard-avatar" %>
             <% end %>

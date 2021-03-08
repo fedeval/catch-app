@@ -64,3 +64,19 @@ background-color: #009CF4 !important;
     background-image:linear-gradient(180deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
   }
 }
+
+.btn-match {
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.9);
+  padding: 5px 35px;
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  transition: 0.5s ease-in;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  &:hover {
+    background-image:linear-gradient(180deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  }
+}
