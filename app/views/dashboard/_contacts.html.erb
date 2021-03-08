@@ -1,8 +1,8 @@
 <div class="contact-list">
 
   <div class="contacts">
-    <% @users.sample(10).each do |contact| %>
-      
+    <% @user.friends.each do |contact| %>
+
       <div class="contact-card">
         <div class="contact-info">
           <div class="contact-avatar">
@@ -12,11 +12,11 @@
               <%= image_tag "hektor.jpg", class: "contacts-avatar" %>
             <% end %>
           </div>
-          
+
           <div class="name">
             <%= contact.first_name %> <%= contact.last_name.first %>.
           </div>
-          
+
         </div>
 
         <div class="chat-link">
@@ -25,4 +25,4 @@
       </div>
     <% end %>
   </div>
-</div> 
+</div>

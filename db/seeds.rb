@@ -40,8 +40,9 @@ puts 'other user seeds...'
 end
 
 puts 'creating chatroom'
-Chatroom.create(name: 'susann-and-hektor')
-Chatroom.create(name: 'susann')
+
+susann_andrew_friendship = HasFriendship::Friendship.create(friend: User.first, friendable: User.last, status: "accepted") 
+Chatroom.create(name: 'susann-and-hektor', friendship: susann_andrew_friendship)
 
 puts 'creating badges'
 Badge.create(category: 'funny', content: '😂')
