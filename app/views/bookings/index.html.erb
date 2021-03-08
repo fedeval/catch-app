@@ -17,7 +17,7 @@
               <% if booking.start_time > Time.now && booking.start_time < Time.now + (2 * 3600) %>
                 
                 <div class="instant-match">
-                  <%= button_to "#{booking.start_time.hour}:#{booking.start_time.min}", booking_path(booking), method: :patch, data: { toggle: 'modal', target: '#instant-modal', user: booking.user_one.first_name }, class: 'btn-match' %>
+                  <%= button_to "#{booking.start_time.strftime "%H:%M"}", booking_path(booking), method: :patch, data: { toggle: 'modal', target: '#instant-modal', user: booking.user_one.first_name }, class: 'btn-match' %>
                 </div>
               <% end %>   
             <% end %>
