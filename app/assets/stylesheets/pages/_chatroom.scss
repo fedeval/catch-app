@@ -1,30 +1,16 @@
-.message-container p.other {
+.message p {
     position: relative;
 	background: #f7f7f7;
 	border-radius: .4em;
-    width: 240px;
+    width: 300px;
     padding: 5px;
-    line-height: 40px;
+    line-height: 20px;
     word-wrap: break-word;
-    margin-left: 305px;
     font-family: 'Fauna One', serif;
     font-size: 12px;
 }
 
-.message-container p.author {
-    position: relative;
-	background: #f7f7f7;
-	border-radius: .4em;
-    width: 240px;
-    padding: 5px;
-    word-wrap: break-word;
-    margin-left: -60px;
-    font-family: 'Fauna One', serif;
-    font-size: 12px;    
-}
-
-
-.message-container p.other:before {
+.message p:before {
     content: '';
 	position: absolute;
 	bottom: 0;
@@ -37,25 +23,6 @@
 	border-left: 0;
 	margin-left: -1.5px;
 	margin-bottom: -10px;
-}
-
-.message-container p.author:before {
-    content: '';
-	position: absolute;
-	bottom: 0;
-	left: 2%;
-	width: 0;
-	height: 0;
-	border: 15px solid transparent;
-	border-top-color: #f7f7f7;
-	border-bottom: 0;
-	border-right: 0;
-	margin-left: -1.5px;
-	margin-bottom: -10px;
-}
-
-.message-container {
-    margin-left: 125px;
 }
 
 .content {
@@ -78,21 +45,13 @@
     overflow-y: scroll;
 }
 
-.message-container i.other {
-     margin-left: 307px;
-     margin-top: 20px;
-     word-wrap: break-word;
-     font-family: 'Fauna One', serif;
-     font-size: 8px;
-     font-weight: bold;
-
+.message {
+margin-left: 210px;
+font-size: 10px;
 }
 
-.message-container i.author {
-    margin-left: -58px;
-    margin-bottom: 20px;
-    word-wrap: break-word;
-    font-family: 'Fauna One', serif;
-    font-size: 8px;
-    font-weight: bold;
+#message_content.form {
+border-radius: 25px;
+background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+-webkit-background-clip: text;
 }
