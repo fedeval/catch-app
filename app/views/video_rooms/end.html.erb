@@ -3,8 +3,13 @@
   <div class="badge-main">
 
     <div class="badge-profile">
-      <h5 style="text-align: center">You just finished your call with <%= @booking.user_one == current_user ? @booking.user_two.first_name : @booking.user_one.first_name %> </h5>
-      <%= image_tag "hektor.jpg", id: 'dashboard-avatar' %>
+      <% other_user = @booking.user_one == current_user ? @booking.user_two : @booking.user_one %>
+      <h5 style="text-align: center">You just finished your call with <%= other_user.first_name %> </h5>
+      <% if other_user.photo.attached? %>
+        <%= cl_image_tag other_user.photo.key, id: "dashboard-avatar" %>
+      <% else %>
+        <%= image_tag "hektor.jpg", id: "dashboard-avatar" %>
+      <% end %>
       <p>Would you like to assign a badge?</p>
       <div class="user-icons">
         <ul class="user-icons-list">
