@@ -6,7 +6,7 @@
       <% end %>
     </div>
   <% end %>
-
+ 
   <div class ="content">
     <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
       <%= f.input :content, label: false, autofocus: true, placeholder: "Message ##{@chatroom.name}" %>
