@@ -22,8 +22,10 @@
             <i class="far fa-check-circle"></i>
         <% end %>
         </div>
-        <div class="deny-link">
+        <div class="decline-link">
+          <%= link_to decline_request_path(contact_id: contact.id), method: :post do %>
           <i class="far fa-times-circle"></i>
+        <% end %>
         </div>
       </div>
     <% end %>

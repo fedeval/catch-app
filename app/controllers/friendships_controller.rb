@@ -14,6 +14,13 @@ class FriendshipsController < ApplicationController
     redirect_to dashboard_index_path(view: "contacts")
   end
 
+  def decline_request
+    contact = User.find(params[:contact_id])
+    current_user.decline_request(contact)
+    authorize(contact)
+    redirect_to dashboard_index_path(view: "contacts")
+  end
+
   # def on_friendship_accepted(friendship)
 
   # end
