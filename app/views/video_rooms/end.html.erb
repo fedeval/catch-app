@@ -1,29 +1,29 @@
 <div class="badge-wrapper">
-
-  <div class="badge-main">
-
-    <div class="badge-profile">
-      <% other_user = @booking.user_one == current_user ? @booking.user_two : @booking.user_one %>
-      <h5 style="text-align: center">You just finished your call with <%= other_user.first_name %> </h5>
+  <div class="badge-profile">
+    <% other_user = @booking.user_one == current_user ? @booking.user_two : @booking.user_one %>
+    <h5 style="text-align: center">You just finished your call with <strong><%= other_user.first_name %></strong></h5>
+    <div class="user-pic">
       <% if other_user.photo.attached? %>
         <%= cl_image_tag other_user.photo.key, id: "dashboard-avatar" %>
       <% else %>
         <%= image_tag "hektor.jpg", id: "dashboard-avatar" %>
-      <% end %>
-      <p>Would you like to assign a badge?</p>
-      <div class="user-icons">
-        <ul class="user-icons-list">
-          <% @badges.each do |badge| %>
-            <%= button_to badge.content, user_badge_assign_path(category: badge.category, booking: @booking), class: "badge-button" %>
-          <% end %>
-        </ul>
+      <% end %>        
+    </div>
+    <p>Would you like to assign a badge?</p>
+    <div class="user-icons">
+        <% @badges.each do |badge| %>
+        <div class="badge">
+          <%= button_to badge.content, user_badge_assign_path(category: badge.category, booking: @booking), class: "badge-button" %>
+        </div>
+        <% end %>
+    </div>
+    <div class="buttons">
+      <div class="end-video-btn-background">
+        <%= link_to "Add to friends", add_friend_path(booking_id: @booking.id), class: "btn btn-call", method: :post %>
       </div>
-      <div>
-        <%= link_to "Add #{ @booking.user_one == current_user ? @booking.user_two.first_name : @booking.user_one.first_name } as a friend", add_friend_path(booking_id: @booking.id), class: "btn btn-primary", method: :post %>
-      </div>
-      <div>
-        <%= link_to "Dashboard", dashboard_index_path, class: "btn btn-primary" %>
-      </div>
+      <div class="end-video-btn-background">
+        <%= link_to "Go to Dashboard", dashboard_index_path, class: "btn btn-call" %>
+      </div>        
     </div>
   </div>
 </div>

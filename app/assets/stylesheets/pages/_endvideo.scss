@@ -1,0 +1,58 @@
+@media (max-width: 600px) {
+  .badge-wrapper {
+    margin: 0;
+  }
+}
+
+.badge-wrapper {
+  padding: 16px;
+  margin: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.badge-profile {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur(5.0px);
+  padding: 50px 100px;
+  align-items: center;
+  border-radius: 5px;
+  p, h5 {
+    margin: 5px;
+    margin-top: 10px;
+  }
+}
+
+.user-icons {
+  display: flex;
+  padding: 10px 0;
+  width: 70%;
+  justify-content: space-around;
+}
+
+.user-pic {
+  padding: 10px 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+}
+
+.end-video-btn-background {
+  border-radius: 50px;
+  background: rgba(255,255,255,0.3);
+  transition: 0.5s ease-in;
+  &:hover {
+    background: white;
+  }
+}
