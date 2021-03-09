@@ -1,4 +1,4 @@
-.message p {
+.message_content p {
     position: relative;
 	background: #f7f7f7;
 	border-radius: .4em;
@@ -8,11 +8,12 @@
     word-wrap: break-word;
     font-family: 'Fauna One', serif;
     font-size: 12px;
-}
+    margin-left: 210px;
+ }
 
-.message p:before {
+.message_content p:after {
     content: '';
-	position: absolute;
+   	position: absolute;
 	bottom: 0;
 	left: 94%;
 	width: 0;
@@ -20,11 +21,14 @@
 	border: 15px solid transparent;
 	border-top-color: #f7f7f7;
 	border-bottom: 0;
-	border-left: 0;
+	border-right: 0;
 	margin-left: -1.5px;
 	margin-bottom: -10px;
 }
 
+.author {
+margin-right: 10px;
+}
 .content {
     margin-left: 63px;
     margin-right: 63px;
@@ -48,10 +52,16 @@
 .message {
 margin-left: 210px;
 font-size: 10px;
+margin-top: 20px;
+margin-bottom: 3px;
+background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-weight: bold;
 }
 
-#message_content.form {
+.form-control {
 border-radius: 25px;
 background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
 -webkit-background-clip: text;
-}
+-webkit-text-fill-color:  #1271FF;}
