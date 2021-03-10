@@ -1,5 +1,5 @@
 <div class="badge-wrapper">
-  <div class="badge-profile">
+  <div class="badge-profile" id="animate">
     <% other_user = @booking.user_one == current_user ? @booking.user_two : @booking.user_one %>
     <h5 style="text-align: center">You just finished your call with <strong><%= other_user.first_name %></strong></h5>
     <div class="user-pic">
@@ -13,7 +13,7 @@
     <div class="user-icons">
         <% @badges.each do |badge| %>
         <div class="badge-lg">
-          <%= button_to badge.content, user_badge_assign_path(category: badge.category, booking: @booking), class: "badge-button" %>
+          <%= button_to badge.content, user_badge_assign_path(category: badge.category, booking: @booking), class: "badge-button", id: badge.category %>
         </div>
         <% end %>
     </div>
