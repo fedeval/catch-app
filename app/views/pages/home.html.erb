@@ -31,12 +31,13 @@
     </div>
     <div class="content" style="margin-left:0;">
       <p>Making friends at work one chat a time</p>
+      <%= link_to "If you are not being redirected...Book a meeting manually", bookings_path %>
     </div>
     <button class="enter">
       <div class="enter__bg"></div>
-      <span class="enter__text" style="color:white;">START</span>
+      <span class="enter__text">ENTER</span>
     </button>
   </main>
 </div>
 <%= javascript_pack_tag 'animation_js' %>
-
+<%= javascript_pack_tag 'delay_js' %>
