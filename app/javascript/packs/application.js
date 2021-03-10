@@ -30,6 +30,7 @@ import "bootstrap";
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initTimepicker } from '../plugins/init_timepicker';
 import { personaliseModal } from '../animations/personalise_modal';
+import { sendFriendRequest } from '../animations/end_video_animations';
 // import { showTimepicker, hideTimepicker } from '../animations/toggle_timepicker';
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initTimepicker();
   personaliseModal();
+  sendFriendRequest();
   // showTimepicker();
   // hideTimepicker();
 });

@@ -4,22 +4,27 @@
     <h5 style="text-align: center">You just finished your call with <strong><%= other_user.first_name %></strong></h5>
     <div class="user-pic">
       <% if other_user.photo.attached? %>
-        <%= cl_image_tag other_user.photo.key, id: "dashboard-avatar" %>
+        <%= cl_image_tag other_user.photo.key, class: "avatar-max" %>
       <% else %>
-        <%= image_tag "hektor.jpg", id: "dashboard-avatar" %>
+        <%= image_tag "hektor.jpg", class: "avatar-max" %>
       <% end %>        
     </div>
     <p>Would you like to assign a badge?</p>
     <div class="user-icons">
         <% @badges.each do |badge| %>
-        <div class="badge">
+        <div class="badge-lg">
           <%= button_to badge.content, user_badge_assign_path(category: badge.category, booking: @booking), class: "badge-button" %>
         </div>
         <% end %>
     </div>
     <div class="buttons">
-      <div class="end-video-btn-background">
-        <%= link_to "Add to friends", add_friend_path(booking_id: @booking.id), class: "btn btn-call", method: :post %>
+      <div class="end-video-btn-background" id="add">
+        <%= link_to add_friend_path(booking_id: @booking.id), class: "btn btn-call", method: :post do %>
+          Add to friends <i class="fas fa-user-plus"></i>
+        <% end %>
+      </div>
+      <div class="hidden btn-sent" id="pending">
+        Pending <i class="fas fa-user-clock"></i>
       </div>
       <div class="end-video-btn-background">
         <%= link_to "Go to Dashboard", dashboard_index_path, class: "btn btn-call" %>
