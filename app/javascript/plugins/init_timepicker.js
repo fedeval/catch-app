@@ -3,14 +3,14 @@ import timepicker from 'timepicker';
 
 const initTimepicker = () => {
   const newBooking = document.getElementById('new_booking'); 
+  
   if (!newBooking) return;
+
   const currentHour = parseInt(document.getElementById('new_booking').dataset.currentHour, 10)
   const currentMinutes = parseInt(document.getElementById('new_booking').dataset.currentMinutes, 10)
   let minTime = calculateMinTime(currentHour, currentMinutes)
   let unavailableTimes = document.getElementById('new_booking').dataset.unavailableTimes
-  console.log(unavailableTimes)
   const json = JSON.parse(unavailableTimes);
-  console.log(json)
 
   $('#booking_start_time').timepicker({
     'disableTextInput': true,
