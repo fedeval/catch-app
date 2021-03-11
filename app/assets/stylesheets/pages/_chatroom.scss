@@ -26,16 +26,13 @@
 	margin-bottom: -10px;
 }
 
-.author {
-margin-right: 10px;
-}
 .content {
-    margin-left: 63px;
-    margin-right: 63px;
     margin-top: 40px;
     height: 90px;
     font-family: 'Fauna One', serif;
     font-size: 10px;
+    width: 720px;
+    position: sticky;
 }
 
 .chat {
@@ -47,21 +44,24 @@ margin-right: 10px;
     margin-bottom: 40px;
     height: 80vh;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.message {
+.message_new {
 margin-left: 210px;
 font-size: 10px;
 margin-top: 20px;
 margin-bottom: 3px;
 background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-font-weight: bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+
 .form-control {
-border-radius: 25px;
-background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
--webkit-background-clip: text;
--webkit-text-fill-color:  #1271FF;}
+    border-radius: 25px;
+    background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:  #1271FF;
+    width: 600px;
+}
