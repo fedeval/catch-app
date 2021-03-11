@@ -36,4 +36,10 @@ class User < ApplicationRecord
   #    self.photo = File.read(file)
   #  end
   # end
+
+  def self.find_friendships(user_one, user_two)
+    friendship_one = HasFriendship::Friendship.find_by(friend: user_one, friendable: user_two)
+    friendship_two = HasFriendship::Friendship.find_by(friend: user_two, friendable: user_one)
+    [friendship_one, friendship_two]
+  end
 end

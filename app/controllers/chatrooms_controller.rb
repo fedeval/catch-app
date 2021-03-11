@@ -6,7 +6,7 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(params[:chatroom])
+    @chatroom = Chatroom.new(name: params[:name], friendship: HasFriendship::Friendship.find(params[:friendship]))
     @chatroom.save
     authorize @chatroom
 
