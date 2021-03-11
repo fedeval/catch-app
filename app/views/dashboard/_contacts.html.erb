@@ -20,7 +20,18 @@
         </div>
 
         <div class="chat-link">
-          <i class="fas fa-comments"></i>
+          <% friendships = User.find_friendships(current_user, contact) %>
+          <% chatroom = Chatroom.find_by(friendship: friendships[0]) || Chatroom.find_by(friendship: friendships[1]) %>
+          <% if chatroom %>
+            <%= link_to chatroom_path(chatroom) do %>
+               <i class="fas fa-comments"></i>
+            <% end %>
+          
+          <% else %>
+            <%= link_to chatrooms_path(name: "#{current_user.first_name}-and-#{contact.first_name}", friendship: friendships[0] ), method: :post do %>
+              <i class="fas fa-comments"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>

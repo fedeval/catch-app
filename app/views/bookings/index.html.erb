@@ -31,7 +31,7 @@
           <h2 id="timepicker-title">... or Choose a New Time</h2>
         </div>
           <div id="timepicker">
-            <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min, unavailable_times: Booking.unavailable_times } do |f| %>
+            <%= simple_form_for @booking, data: {current_hour: Time.now.hour + 1, current_minutes: Time.now.min, unavailable_times: Booking.unavailable_times } do |f| %>
               <%= f.text_field :start_time, style: "width: 100%;" %>
               <div class="submit-btn">
                 <%= submit_tag "Add Time", data: { toggle: 'modal', target: '#schedule-modal' }, class: 'btn-match', id: 'timepicker-btn' %>
