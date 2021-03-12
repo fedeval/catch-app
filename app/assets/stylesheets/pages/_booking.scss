@@ -19,8 +19,15 @@
 }
 
 h2 {
-  font-size: 44px;
+  font-size: 50px;
   font-weight: bold;
+  background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 10px;
+}
+
+p {
   background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -32,9 +39,9 @@ h2 {
 }
 
 .instant-matches {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 16px;
 }
 
 .bookings-form {
