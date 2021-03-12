@@ -52,11 +52,13 @@ h2 {
   padding-bottom: 10px;
 }
 
-p {
+#title-box {
+  p {
   background-image:linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-bottom: 10px;
+  }
 }
 
 .instant-matches-list {
