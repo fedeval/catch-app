@@ -29,14 +29,6 @@ class User < ApplicationRecord
   # frindship gem
   has_friendship
 
-  # set_default image whenr user sign up without a photo
-  # def set_default_photo
-  #  if !self.photo.attached?
-  #    file = File.join(Rails.root, 'app', 'assets', 'images','hektor.jpg')
-  #    self.photo = File.read(file)
-  #  end
-  # end
-
   def self.find_friendships(user_one, user_two)
     friendship_one = HasFriendship::Friendship.find_by(friend: user_one, friendable: user_two)
     friendship_two = HasFriendship::Friendship.find_by(friend: user_two, friendable: user_one)
