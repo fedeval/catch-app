@@ -31,7 +31,6 @@ import { initChatroomCable } from '../channels/chatroom_channel';
 import { initTimepicker } from '../plugins/init_timepicker';
 import { personaliseModal } from '../animations/personalise_modal';
 import { sendFriendRequest, emojiRain } from '../animations/end_video_animations';
-// import { showTimepicker, hideTimepicker } from '../animations/toggle_timepicker';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -41,8 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   personaliseModal();
   sendFriendRequest();
   emojiRain();
-  // showTimepicker();
-  // hideTimepicker();
 });
 
 import "controllers"
