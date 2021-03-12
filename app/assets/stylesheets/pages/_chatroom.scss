@@ -2,13 +2,13 @@
     position: relative;
 	background: #f7f7f7;
 	border-radius: .4em;
-    width: 300px;
     padding: 5px;
     line-height: 20px;
     word-wrap: break-word;
     font-family: 'Fauna One', serif;
-    font-size: 12px;
-    margin-left: 210px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-right: 20px;
  }
 
 .message_content p:after {
@@ -27,29 +27,31 @@
 }
 
 .chat-content {
-    // margin-top: 40px;
-    // height: 90px;
-    // font-family: 'Fauna One', serif;
-    // font-size: 10px;
-    // width: 720px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.chat-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .chat {
-    margin-left: 260px; 
-    margin-right: 260px;
+    width: 60%;
     border-radius: 30px;
     background: rgba(255,255,255,0.5);
     margin-top: 40px;
     margin-bottom: 40px;
-    height: 80vh;
+    height: 65vh;
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .message_new {
-    margin-left: 210px;
-    font-size: 10px;
+    margin-left: 20px;
+    font-size: 12px;
     margin-top: 20px;
     margin-bottom: 3px;
     background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
@@ -63,5 +65,4 @@
     background-image: linear-gradient(92.97deg, #35B6FF 0.65%, #1271FF 46.36%, #CD18FB 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color:  #1271FF;
-    width: 600px;
 }
