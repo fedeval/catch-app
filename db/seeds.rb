@@ -85,7 +85,7 @@ HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Juan'), frien
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Hektor'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Anett'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Maria'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
-HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Valntin'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
+HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Valentin'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
 
 puts 'creating badges'
 Badge.create(category: 'funny', content: '😂')
