@@ -17,15 +17,17 @@
           </div>
 
         </div>
-        <div class="approve-link">
-          <%= link_to accept_request_path(contact_id: contact.id), method: :post do %>
-            <i class="far fa-check-circle"></i>
-        <% end %>
-        </div>
-        <div class="decline-link">
-          <%= link_to decline_request_path(contact_id: contact.id), method: :post do %>
-          <i class="far fa-times-circle"></i>
-        <% end %>
+        <div class="friendship-actions">
+          <div class="approve-link">
+            <%= link_to accept_request_path(contact_id: contact.id), method: :post do %>
+              <i class="far fa-check-circle" id="accept-green"></i>
+          <% end %>
+          </div>
+          <div class="decline-link">
+            <%= link_to decline_request_path(contact_id: contact.id), method: :post do %>
+            <i class="far fa-times-circle" id="decline-red"></i>
+          <% end %>
+          </div>
         </div>
       </div>
     <% end %>
