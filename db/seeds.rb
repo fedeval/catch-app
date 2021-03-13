@@ -124,37 +124,7 @@ assign_badges(senders, leo, badges, 7, 'party')
 assign_badges(senders, leo, badges, 8, 'nice')
 assign_badges(senders, leo, badges, 1, 'smart')
 assign_badges(senders, leo, badges, 2, 'geeky')
-# 8.times do
-#   sender = User.where.not(first_name: 'Leonardo').sample
-#   leo = User.find_by(first_name: 'Leonardo')
-#   UserBadge.create(sender_id: sender.id,
-#                    receiver_id: leo.id,
-#                    badge_id: badges.find_by(category: 'funny').id)
-# end
 
-# 8.times do
-#   sender = User.where.not(first_name: 'Leonardo').sample
-#   leo = User.find_by(first_name: 'Leonardo')
-#   UserBadge.create(sender_id: sender.id,
-#                    receiver_id: leo.id,
-#                    badge_id: badges.find_by(category: 'funny').id)
-# end
-
-# 8.times do
-#   sender = User.where.not(first_name: 'Leonardo').sample
-#   leo = User.find_by(first_name: 'Leonardo')
-#   UserBadge.create(sender_id: sender.id,
-#                    receiver_id: leo.id,
-#                    badge_id: badges.find_by(category: 'funny').id)
-# end
-
-# 8.times do
-#   sender = User.where.not(first_name: 'Leonardo').sample
-#   leo = User.find_by(first_name: 'Leonardo')
-#   UserBadge.create(sender_id: sender.id,
-#                    receiver_id: leo.id,
-#                    badge_id: badges.find_by(category: 'funny').id)
-# end
 
 puts 'creating some bookings'
 hours = (9..19).to_a
@@ -169,5 +139,6 @@ end
 
 Booking.create(start_time: Time.parse("17:20"), user_one: User.find_by(first_name: 'Federico'))
 Booking.create(start_time: Time.parse("17:40"), user_one: User.find_by(first_name: 'Federico'))
+Booking.create(start_time: Time.parse("18:00"), user_one: User.find_by(first_name: 'Federico'))
 
 puts 'done.'
