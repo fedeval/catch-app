@@ -74,14 +74,15 @@ valentin.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Va
 
 puts 'creating friensdhips'
 
+HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Leonardo'), friendable: User.find_by(first_name: 'Juan'), status: "pending") 
+HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Juan'), friendable: User.find_by(first_name: 'Leonardo'), status: "requested") 
+
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Leonardo'), friendable: User.find_by(first_name: 'Susann'), status: "accepted") 
-HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Leonardo'), friendable: User.find_by(first_name: 'Juan'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Leonardo'), friendable: User.find_by(first_name: 'Hektor'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Leonardo'), friendable: User.find_by(first_name: 'Anett'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Leonardo'), friendable: User.find_by(first_name: 'Maria'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Leonardo'), friendable: User.find_by(first_name: 'Valentin'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Susann'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
-HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Juan'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Hektor'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Anett'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
 HasFriendship::Friendship.create(friend: User.find_by(first_name: 'Maria'), friendable: User.find_by(first_name: 'Leonardo'), status: "accepted") 
@@ -94,10 +95,10 @@ Badge.create(category: 'nice', content: '🤗')
 Badge.create(category: 'smart', content: '🧠')
 Badge.create(category: 'geeky', content: '👾')
 
-puts 'assigning badges to users'
+puts 'assigning badges to users excl. Leo'
 badges = Badge.all
-User.all.each do |receiver|
-  User.all.each do |sender|
+User.where.not(first_name: 'Leonardo').each do |receiver|
+  User.where.not(first_name: 'Leonardo').each do |sender|
     unless  receiver == sender
       UserBadge.create(sender_id: sender.id,
                        receiver_id: receiver.id,
@@ -106,6 +107,54 @@ User.all.each do |receiver|
   end
 end
 
+puts 'assigning badges to Leo'
+
+def assign_badges(senders, receiver, badges, amount, category)
+  amount.times do
+    UserBadge.create(sender_id: senders.sample.id,
+                     receiver_id: receiver.id,
+                     badge_id: badges.find_by(category: category).id)
+  end
+end
+
+senders = User.where.not(first_name: 'Leonardo')
+leo = User.find_by(first_name: 'Leonardo')
+assign_badges(senders, leo, badges, 8, 'funny')
+assign_badges(senders, leo, badges, 7, 'party')
+assign_badges(senders, leo, badges, 8, 'nice')
+assign_badges(senders, leo, badges, 1, 'smart')
+assign_badges(senders, leo, badges, 2, 'geeky')
+# 8.times do
+#   sender = User.where.not(first_name: 'Leonardo').sample
+#   leo = User.find_by(first_name: 'Leonardo')
+#   UserBadge.create(sender_id: sender.id,
+#                    receiver_id: leo.id,
+#                    badge_id: badges.find_by(category: 'funny').id)
+# end
+
+# 8.times do
+#   sender = User.where.not(first_name: 'Leonardo').sample
+#   leo = User.find_by(first_name: 'Leonardo')
+#   UserBadge.create(sender_id: sender.id,
+#                    receiver_id: leo.id,
+#                    badge_id: badges.find_by(category: 'funny').id)
+# end
+
+# 8.times do
+#   sender = User.where.not(first_name: 'Leonardo').sample
+#   leo = User.find_by(first_name: 'Leonardo')
+#   UserBadge.create(sender_id: sender.id,
+#                    receiver_id: leo.id,
+#                    badge_id: badges.find_by(category: 'funny').id)
+# end
+
+# 8.times do
+#   sender = User.where.not(first_name: 'Leonardo').sample
+#   leo = User.find_by(first_name: 'Leonardo')
+#   UserBadge.create(sender_id: sender.id,
+#                    receiver_id: leo.id,
+#                    badge_id: badges.find_by(category: 'funny').id)
+# end
 
 puts 'creating some bookings'
 hours = (9..19).to_a
@@ -114,7 +163,7 @@ minutes = (0..50).step(10).to_a
 hours.each do |hour|
   minutes.each do |minute|
     start_time = Time.parse("#{hour}:#{minute}")
-    Booking.create(start_time: start_time, user_one: User.all.sample) if (minute / 10) % [2,3,5].sample != 0
+    Booking.create(start_time: start_time, user_one: User.where.not(first_name: 'Leonardo').sample) if (minute / 10) % [2,3,5].sample != 0
   end
 end
 
