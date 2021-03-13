@@ -118,7 +118,7 @@ hours.each do |hour|
   end
 end
 
-Booking.create(start_time: Time.parse("18:20"), user_one: User.find_by(first_name: 'Federico'))
-Booking.create(start_time: Time.parse("18:40"), user_one: User.find_by(first_name: 'Federico'))
+Booking.create(start_time: Time.parse("17:20"), user_one: User.find_by(first_name: 'Federico'))
+Booking.create(start_time: Time.parse("17:40"), user_one: User.find_by(first_name: 'Federico'))
 
 puts 'done.'
