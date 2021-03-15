@@ -1,4 +1,5 @@
 <div class="wrapper">
+  
   <div class="booking-container">
     
     <div class="booking-window">
@@ -14,7 +15,7 @@
             
             <% if booking.user_one != current_user && booking.user_two.nil? %>
               
-              <% if booking.start_time > Time.now + (1 * 3600) && booking.start_time < Time.now + (3 * 3600) %>
+              <% if booking.start_time > Time.now && booking.start_time < Time.now + (3 * 3600) %>
                 
                 <div class="instant-match">
                   <%= button_to "#{booking.start_time.strftime "%H:%M"}", booking_path(booking), method: :patch, data: { toggle: 'modal', target: '#instant-modal', user: booking.user_one.first_name }, class: 'btn-match' %>
@@ -26,19 +27,20 @@
       </div>
 
       <div class="bookings-form">
+        
         <div id="title-box">
           <h2 id="timepicker-title">... or Choose a New Time</h2>
           <p>Make yourself available another time if none of the instant matches work</p>
         </div>
-          <div id="timepicker">
-            <%= simple_form_for @booking, data: {current_hour: Time.now.hour + 1, current_minutes: Time.now.min, unavailable_times: Booking.unavailable_times } do |f| %>
-              <%= f.text_field :start_time, style: "width: 100%;" %>
-              <div class="submit-btn">
-                <%= submit_tag "Add Time", data: { toggle: 'modal', target: '#schedule-modal' }, class: 'btn-match', id: 'timepicker-btn' %>
-              </div>
-            <% end %>
 
-          </div>
+        <div id="timepicker">
+          <%= simple_form_for @booking, data: {current_hour: Time.now.hour, current_minutes: Time.now.min, unavailable_times: Booking.unavailable_times } do |f| %>
+            <%= f.text_field :start_time, style: "width: 100%;" %>
+            <div class="submit-btn">
+              <%= submit_tag "Add Time", data: { toggle: 'modal', target: '#schedule-modal' }, class: 'btn-match', id: 'timepicker-btn' %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

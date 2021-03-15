@@ -28,37 +28,28 @@ end
 
 puts 'creating seeds for the other users...'
 hektor = User.create(email: 'hektor@test.com', password: '123456', first_name: 'Hektor', last_name: 'Hernandez', username: 'hekterminator', description: '...')
-hektor.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Hektor.png')), filename: 'Hektor.png', content_type: 'image/png')
-
 anett = User.create(email: 'anett@test.com', password: '123456', first_name: 'Anett', last_name: 'Logan', username: 'annie', description: '...')
-anett.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Anett.png')), filename: 'Anett.png', content_type: 'image/png')
-
 glendale = User.create(email: 'glendale@test.com', password: '123456', first_name: 'Glendale', last_name: 'Simons', username: 'grannieglen', description: '...')
-glendale.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Glendale.png')), filename: 'Glendale.png', content_type: 'image/png')
-
 holger = User.create(email: 'holger@test.com', password: '123456', first_name: 'Holger', last_name: 'Schneider', username: 'holger', description: '...')
-holger.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Holger.png')), filename: 'Holger.png', content_type: 'image/png')
-
 julia = User.create(email: 'julia@test.com', password: '123456', first_name: 'Julia', last_name: 'Jones', username: 'jayjay', description: '...')
-julia.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Julia.png')), filename: 'Julia.png', content_type: 'image/png')
-
 kim = User.create(email: 'kim@test.com', password: '123456', first_name: 'Kim', last_name: 'Kwang', username: 'kimk', description: '...')
-kim.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Kim.png')), filename: 'Kim.png', content_type: 'image/png')
-
 kristina = User.create(email: 'kristina@test.com', password: '123456', first_name: 'Kristina', last_name: 'Lopez', username: 'krissy', description: '...')
-kristina.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Kristina.png')), filename: 'Kristina.png', content_type: 'image/png')
-
 maria = User.create(email: 'maria@test.com', password: '123456', first_name: 'Maria', last_name: 'Bianchi', username: 'bellamaria', description: '...')
-maria.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Maria.png')), filename: 'Maria.png', content_type: 'image/png')
-
 pablo = User.create(email: 'pablo@test.com', password: '123456', first_name: 'Pablo', last_name: 'Gomez de la Fuente', username: 'pablito', description: '...')
-pablo.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Pablo.png')), filename: 'Pablo.png', content_type: 'image/png')
-
 sharona = User.create(email: 'sharona@test.com', password: '123456', first_name: 'Sharona', last_name: 'Lawson', username: 'mysharona', description: '...')
-sharona.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Sharona.png')), filename: 'Sharona.png', content_type: 'image/png')
-
 valentin = User.create(email: 'valentin@test.com', password: '123456', first_name: 'Valentin', last_name: 'Valentinowski', username: 'valthezar', description: '...')
-valentin.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Valentin.png')), filename: 'Valentin.png', content_type: 'image/png')
+
+# hektor.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Hektor.png')), filename: 'Hektor.png', content_type: 'image/png')
+# anett.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Anett.png')), filename: 'Anett.png', content_type: 'image/png')
+# glendale.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Glendale.png')), filename: 'Glendale.png', content_type: 'image/png')
+# holger.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Holger.png')), filename: 'Holger.png', content_type: 'image/png')
+# julia.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Julia.png')), filename: 'Julia.png', content_type: 'image/png')
+# kim.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Kim.png')), filename: 'Kim.png', content_type: 'image/png')
+# kristina.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Kristina.png')), filename: 'Kristina.png', content_type: 'image/png')
+# maria.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Maria.png')), filename: 'Maria.png', content_type: 'image/png')
+# pablo.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Pablo.png')), filename: 'Pablo.png', content_type: 'image/png')
+# sharona.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Sharona.png')), filename: 'Sharona.png', content_type: 'image/png')
+# valentin.photo.attach(io: File.open(File.join(Rails.root, '/app/assets/images/Valentin.png')), filename: 'Valentin.png', content_type: 'image/png')
 
 # puts 'other user seeds...'
 # 20.times do
@@ -127,7 +118,7 @@ assign_badges(senders, leo, badges, 2, 'geeky')
 
 
 puts 'creating some bookings'
-hours = (9..19).to_a
+hours = (9..23).to_a
 minutes = (0..50).step(10).to_a
 
 hours.each do |hour|

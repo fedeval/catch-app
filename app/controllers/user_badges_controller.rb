@@ -10,6 +10,5 @@ class UserBadgesController < ApplicationController
       badge: badge
     )
     authorize user_badge
-    # redirect_to dashboard_index_path if user_badge.save
   end
 end

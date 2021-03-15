@@ -2,7 +2,7 @@
     
   <div class="confirmed-calls">
     <h5>Upcoming Calls</h5>
-      <% @bookings.where("start_time > ?", Time.now + (1 * 3600)).order('start_time ASC').each do |booking| %>
+      <% @bookings.where("start_time > ?", Time.now).order('start_time ASC').each do |booking| %>
         <% unless booking.user_two.nil? %>
         <div class="confirmed-call">
           <% other_user = current_user == booking.user_one ? booking.user_two : booking.user_one %>
@@ -19,7 +19,7 @@
   <h5>To Be Confirmed</h5>
   <div class="unconfirmed-calls">
 
-    <% @bookings.where("start_time > ?", Time.now + (1 * 3600)).order('start_time ASC').each do |booking| %>
+    <% @bookings.where("start_time > ?", Time.now).order('start_time ASC').each do |booking| %>
       <% unless !booking.user_two.nil? %>
         <div class="unconfirmed-call">
           <%= booking.start_time.strftime "%H:%M" %>
