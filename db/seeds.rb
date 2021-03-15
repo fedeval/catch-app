@@ -127,7 +127,7 @@ assign_badges(senders, leo, badges, 2, 'geeky')
 
 
 puts 'creating some bookings'
-hours = (9..19).to_a
+hours = (9..23).to_a
 minutes = (0..50).step(10).to_a
 
 hours.each do |hour|
