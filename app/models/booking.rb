@@ -9,6 +9,7 @@ class Booking < ApplicationRecord
   self.skip_time_zone_conversion_for_attributes = [:start_time]
 
   def start_time=(time)
+    time = Time.parse(time) if time.class == String
     write_attribute(:start_time, time ? time + time.utc_offset : nil)
   end
 
