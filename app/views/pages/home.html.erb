@@ -1,8 +1,10 @@
 <div class="home-container">
-  <div class="home-card">
-    <%= image_tag 'logo_new.png' %>
-    <div class="button-container">
-      <%= link_to 'Book a meeting', bookings_path, class: 'btn-primary' %>
+  <div class="glass-card" id="home-card">
+    <div id="home-image-container">
+      <%= image_tag 'logo_new.png', id: 'home-logo' %>
+    </div>
+    <div id="home-button-container">
+      <%= link_to 'Book a meeting', bookings_path, class: 'btn-primary', id: 'btn-home' %>
     </div>
   </div>
 </div>
