@@ -4,7 +4,7 @@ class UserBadgesController < ApplicationController
   def assign
     badge = Badge.find_by(category: params[:category])
     booking = Booking.find(params[:booking])
-    user_badge = UserBadge.new(
+    user_badge = UserBadge.create(
       receiver: booking.user_one == current_user ? booking.user_two : booking.user_one,
       sender: current_user,
       badge: badge
