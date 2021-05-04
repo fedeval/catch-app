@@ -74,3 +74,6 @@ gem "opentok", "~> 4.0.0"
 
 # cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+# New relic for app monitoring and avoiding idle state in production
+gem 'newrelic_rpm'
