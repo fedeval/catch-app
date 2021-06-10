@@ -1,4 +1,5 @@
 import timepicker from 'timepicker';
+//  checkt moment-timezone npm package
 
 const initTimepicker = () => {
   const newBooking = document.getElementById('new_booking'); 
