@@ -19,8 +19,8 @@ class Booking < ApplicationRecord
   end
 
   def self.unavailable_times
-    unconfirmed_bookings = Booking.all.where(user_two: nil).order('start_time ASC')
-    ub = unconfirmed_bookings.select { |booking| booking.start_time > Time.now + (1 * 3600) && booking.start_time < Time.now + (3 * 3600) }
-    ub.map { |booking| [booking.start_time.strftime('%I:%M%P'), (booking.start_time + (60 * 2)).strftime('%I:%M%P')] }
+    open_bookings = Booking.all.where(user_two: nil).order('start_time ASC')
+    unavail_bookings = open_bookings.select { |b| b.start_time > Time.now && b.start_time < Time.now + (2 * 3600) }
+    unavail_bookings.map { |b| [b.start_time.strftime('%I:%M%P'), (b.start_time + (60 * 2)).strftime('%I:%M%P')] }
   end
 end
