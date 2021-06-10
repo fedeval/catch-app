@@ -5,13 +5,12 @@ const initTimepicker = () => {
   
   if (!newBooking) return;
 
-  const currentHour = parseInt(newBooking.dataset.currentHour, 10)
-  const currentMinutes = parseInt(newBooking.dataset.currentMinutes, 10)
-  const unavailableTimes = newBooking.dataset.unavailableTimes
-  console.log(unavailableTimes)
-  const minTime = calculateMinTime(currentHour, currentMinutes)
+  const currentHour = parseInt(newBooking.dataset.currentHour, 10);
+  const currentMinutes = parseInt(newBooking.dataset.currentMinutes, 10);
+  const unavailableTimes = newBooking.dataset.unavailableTimes;
+  const minTime = calculateMinTime(currentHour, currentMinutes);
   const jsonUT = JSON.parse(unavailableTimes);
-  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  // const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   $('#booking_start_time').timepicker({
     'disableTextInput': true,
@@ -32,7 +31,7 @@ const calculateMinTime = (currentHour, currentMinutes) => {
   }
   let minHour = currentHour;
   if (minMinutes === 0) {
-    minHour = currentHour !== 23 ? currentHour + 1 : minHour = 0
+    minHour = currentHour !== 23 ? currentHour + 1 : minHour = 0;
   }
   return `${minHour}:${minMinutes}`;
 }
